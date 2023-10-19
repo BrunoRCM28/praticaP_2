@@ -49,6 +49,8 @@ create table hotel.Reserva(
     numeroQuarto int not null,
     quantidadeDePessoas int not null,
     observacao text,
+	dia_checkin date not null,
+	dia_checkout date not null,
 	foreign key(cpf)
 		references hotel.Hospedes(cpf),
 	foreign key(numeroQuarto)
