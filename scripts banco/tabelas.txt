@@ -1,0 +1,58 @@
+create table hotel.Hospedes(
+	codigoCliente int identity(1, 1) primary key not null,
+	prenome varchar(25) not null,
+    sobrenome varchar(25) not null,
+    cpf bigint unique not null,
+    telefone bigint not null,
+    e_mail varchar(25),
+    rg bigint not null,
+    sexo char not null,
+	inativo bit not null default 0
+)
+
+ALTER TABLE hotel.Hospedes ADD inativo bit NOT NULL DEFAULT 0
+
+drop table hotel.Hospedes
+
+create table hotel.Estacionamento(
+	id_Vaga int identity(1, 1) primary key not null,
+	cpf bigint not null,
+    cor varchar(10) not null,
+    modelo varchar(10) not null,
+    placa text not null
+	foreign key(cpf)
+		references hotel.Hospedes(cpf)
+)
+
+drop table hotel.Estacionamento
+
+create table hotel.TipoQuarto(
+	especificacao text not null,
+    id_Tipo int identity(1, 1) PRIMARY KEY
+)
+
+drop table hotel.TipoQuarto
+
+create table hotel.Quarto(
+	andar int not null,
+    numeroQuarto int  PRIMARY KEY not null,
+    id_Tipo int not null
+	foreign key(id_Tipo)
+		references hotel.TipoQuarto(id_Tipo)
+)
+
+drop table hotel.Quarto
+
+create table hotel.Reserva(
+	id_Reserva int identity(1, 1) PRIMARY KEY not null,
+	cpf bigint not null,
+    numeroQuarto int not null,
+    quantidadeDePessoas int not null,
+    observacao text,
+	foreign key(cpf)
+		references hotel.Hospedes(cpf),
+	foreign key(numeroQuarto)
+		references hotel.Quarto(numeroQuarto)
+)
+
+drop table hotel.Reserva
