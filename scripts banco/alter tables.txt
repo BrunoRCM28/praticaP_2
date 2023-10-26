@@ -1,5 +1,0 @@
-alter table hotel.reserva
-alter column dia_checkin datetime not null
-
-alter table hotel.reserva
-alter column dia_checkout datetime not null
