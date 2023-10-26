@@ -126,11 +126,11 @@ public class Tela2 extends JFrame {
         jButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         jButton.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
-                jButton.setBackground(new Color(131, 134, 131)); // Exemplo: verde mais claro
+                jButton.setBackground(new Color(131, 134, 131));
             }
 
             public void mouseExited(MouseEvent e) {
-                jButton.setBackground(new Color(93, 96, 93)); // Retorna à cor original
+                jButton.setBackground(new Color(93, 96, 93));
             }
         });
         cadastro.add(jButton);
