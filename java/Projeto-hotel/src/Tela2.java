@@ -211,7 +211,7 @@ public class Tela2 extends JFrame {
         reserva.add(modelo);
 
         JTextField textModelo = new JTextField("Escreva aqui");
-        textModelo.setBounds(475, 240, 250, 30);
+        textModelo.setBounds(528, 240, 201, 30);
         textModelo.setFont(new Font("Arial", Font.PLAIN, 13));
         reserva.add(textModelo);
 
