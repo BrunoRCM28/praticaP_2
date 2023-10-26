@@ -158,49 +158,36 @@ public class Tela2 extends JFrame {
         textCpfClientes.setFont(new Font("Arial", Font.PLAIN, 13));
         reserva.add(textCpfClientes);
 
-        // Caixa de texto - Número do quarto
-        JLabel numero = new JLabel("NÚMERO DO QUARTO: ");
-        numero.setBounds(435, 90,200,50);
-        numero.setFont(new Font("Arial", Font.BOLD, 15));
-        reserva.add(numero);
-
-        JTextField textNumero = new JTextField("Escreva aqui");
-        textNumero.setBounds(610, 100, 120, 30);
-        textNumero.setFont(new Font("Arial", Font.PLAIN, 13));
-        reserva.add(textNumero);
-
         // Caixa de texto - pessoas no quarto
         JLabel pessoas = new JLabel("QUATIDADE DE PESSOAS: ");
-        pessoas.setBounds(12, 160,200,50);
+        pessoas.setBounds(405, 90,200,50);
         pessoas.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(pessoas);
 
         JTextField textPessoas = new JTextField("Escreva aqui");
-        textPessoas.setBounds(85, 170, 250, 30);
+        textPessoas.setBounds(605, 100, 150, 30);
         textPessoas.setFont(new Font("Arial", Font.PLAIN, 13));
         reserva.add(textPessoas);
 
-        // Caixa de seleção - carro
-        String[] carro = {"Sim", "Não"};
-        JLabel carroLabel = new JLabel("CARRO: ");
-        carroLabel.setBounds(115, 160, 200, 50);
-        carroLabel.setFont(new Font("Arial", Font.BOLD, 15));
-        reserva.add(carroLabel);
+        // Caixa de texto - Número do quarto
+        JLabel numero = new JLabel("N° DO QUARTO: ");
+        numero.setBounds(12, 160,200,50);
+        numero.setFont(new Font("Arial", Font.BOLD, 15));
+        reserva.add(numero);
 
-        JComboBox<String> carroComboBox = new JComboBox<>(carro);
-        carroComboBox.setBounds(188, 170, 150, 30);
-        carroComboBox.setFont(new Font("Arial", Font.PLAIN, 13));
-        carroComboBox.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        reserva.add(carroComboBox);
+        JTextField textNumero = new JTextField("Escreva aqui");
+        textNumero.setBounds(135, 170, 120, 30);
+        textNumero.setFont(new Font("Arial", Font.PLAIN, 13));
+        reserva.add(textNumero);
 
         // Caixa de texto - cor carro
         JLabel cor = new JLabel("COR DO CARRO: ");
-        cor.setBounds(12, 230,200,50);
+        cor.setBounds(442, 160,200,50);
         cor.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(cor);
 
         JTextField textCor = new JTextField("Escreva aqui");
-        textCor.setBounds(143, 240, 200, 30);
+        textCor.setBounds(574, 170, 180, 30);
         textCor.setFont(new Font("Arial", Font.PLAIN, 13));
         reserva.add(textCor);
 
@@ -211,37 +198,59 @@ public class Tela2 extends JFrame {
         reserva.add(modelo);
 
         JTextField textModelo = new JTextField("Escreva aqui");
-        textModelo.setBounds(528, 240, 201, 30);
+        textModelo.setBounds(530, 240, 225, 30);
         textModelo.setFont(new Font("Arial", Font.PLAIN, 13));
         reserva.add(textModelo);
 
         // Caixa de texto - placa
         JLabel placa = new JLabel("PLACA DO CARRO: ");
-        placa.setBounds(365, 430,200,50);
+        placa.setBounds(12, 230,200,50);
         placa.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(placa);
 
         JTextField textPlaca = new JTextField("Escreva aqui");
-        textPlaca.setBounds(475, 440, 250, 30);
+        textPlaca.setBounds(155, 240, 200, 30);
         textPlaca.setFont(new Font("Arial", Font.PLAIN, 13));
         reserva.add(textPlaca);
 
+        // Caixa de seleção - carro
+        String[] carro = {"Não", "Sim"};
+        JLabel carroLabel = new JLabel("CARRO: ");
+        carroLabel.setBounds(265, 160, 200, 50);
+        carroLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        reserva.add(carroLabel);
+
+        JComboBox<String> carroComboBox = new JComboBox<>(carro);
+        carroComboBox.setBounds(330, 170, 100, 30);
+        carroComboBox.setFont(new Font("Arial", Font.PLAIN, 13));
+        carroComboBox.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        reserva.add(carroComboBox);
+
+        carroComboBox.addActionListener(e -> {
+            String selectedValue = (String) carroComboBox.getSelectedItem();
+            boolean enableCamposCarro = selectedValue.equals("Sim");
+            textCor.setEnabled(enableCamposCarro);
+            textModelo.setEnabled(enableCamposCarro);
+            textPlaca.setEnabled(enableCamposCarro);
+        });
+
+
         // Caixa de texto - observação
-        JLabel rg = new JLabel("OBSERVAÇÕES SOBRE O QUARTO: ");
-        rg.setBounds(365, 160,200,50);
+        JLabel rg = new JLabel("<html>OBSERVAÇÕES SOBRE <br>O QUARTO: </html>");
+        rg.setBounds(12, 300,200,50);
         rg.setFont(new Font("Arial", Font.BOLD, 15));
-        //reserva.add(rg);
+        reserva.add(rg);
 
         JTextField textRg = new JTextField("Escreva aqui");
-        textRg.setBounds(475, 170, 250, 30);
+        textRg.setBounds(155, 310, 250, 30);
         textRg.setFont(new Font("Arial", Font.PLAIN, 13));
-        //reserva.add(textRg);
+        reserva.add(textRg);
 
 
         // Botão de Cadastro
-        JButton jButton = new JButton("Cadastrar");
-        jButton.setBounds(300, 400, 140, 40);
-        jButton.setFont(new Font("Arial", Font.BOLD, 16));
+        JButton jButton = new JButton("FAZER RESERVA");
+        jButton.setBounds(300, 450, 140, 40);
+        jButton.setFont(new Font("Arial", Font.BOLD, 10));
         jButton.setForeground(Color.WHITE);
         jButton.setBackground(new Color(93, 96, 93));
         jButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
