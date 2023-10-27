@@ -203,6 +203,9 @@ public class Tela2 extends JFrame {
         JTextField textModelo = new JTextField("Escreva aqui");
         textModelo.setBounds(530, 240, 225, 30);
         textModelo.setFont(new Font("Arial", Font.PLAIN, 13));
+        textModelo.setEnabled(false);
+        textModelo.setBackground(new Color(204, 204, 204));
+        textModelo.setDisabledTextColor(Color.gray);
         reserva.add(textModelo);
 
         // Caixa de texto - placa
@@ -214,6 +217,9 @@ public class Tela2 extends JFrame {
         JTextField textPlaca = new JTextField("Escreva aqui");
         textPlaca.setBounds(155, 240, 200, 30);
         textPlaca.setFont(new Font("Arial", Font.PLAIN, 13));
+        textPlaca.setEnabled(false);
+        textPlaca.setBackground(new Color(204, 204, 204));
+        textPlaca.setDisabledTextColor(Color.gray);
         reserva.add(textPlaca);
 
         // Caixa de seleção - carro
@@ -231,10 +237,32 @@ public class Tela2 extends JFrame {
 
         carroComboBox.addActionListener(e -> {
             String selectedValue = (String) carroComboBox.getSelectedItem();
-            boolean enableCamposCarro = selectedValue.equals("Sim");
-            textCor.setEnabled(enableCamposCarro);
-            textModelo.setEnabled(enableCamposCarro);
-            textPlaca.setEnabled(enableCamposCarro);
+
+            if(selectedValue.equals("Sim")){
+                textCor.setEnabled(true);
+                textCor.setBackground(Color.WHITE);
+
+                textModelo.setEnabled(true);
+                textModelo.setBackground(Color.WHITE);
+
+                textPlaca.setEnabled(true);
+                textPlaca.setBackground(Color.WHITE);
+
+            }else if (selectedValue.equals("Não")){
+                textCor.setEnabled(false);
+                textCor.setBackground(new Color(204, 204, 204));
+                textCor.setDisabledTextColor(Color.gray);
+
+                textModelo.setEnabled(false);
+                textModelo.setBackground(new Color(204, 204, 204));
+                textModelo.setDisabledTextColor(Color.gray);
+
+                textPlaca.setEnabled(false);
+                textPlaca.setBackground(new Color(204, 204, 204));
+                textPlaca.setDisabledTextColor(Color.gray);
+
+            }
+
         });
 
 
