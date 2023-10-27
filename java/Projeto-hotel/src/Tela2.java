@@ -260,7 +260,6 @@ public class Tela2 extends JFrame {
                 textPlaca.setEnabled(false);
                 textPlaca.setBackground(new Color(204, 204, 204));
                 textPlaca.setDisabledTextColor(Color.gray);
-
             }
 
         });
