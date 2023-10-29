@@ -189,6 +189,9 @@ public class Tela2 extends JFrame {
         JTextField textCor = new JTextField("Escreva aqui");
         textCor.setBounds(574, 170, 180, 30);
         textCor.setFont(new Font("Arial", Font.PLAIN, 13));
+        textCor.setEnabled(false);
+        textCor.setBackground(new Color(204, 204, 204));
+        textCor.setDisabledTextColor(Color.gray);
         reserva.add(textCor);
 
         // Caixa de texto - modelo
@@ -200,6 +203,9 @@ public class Tela2 extends JFrame {
         JTextField textModelo = new JTextField("Escreva aqui");
         textModelo.setBounds(530, 240, 225, 30);
         textModelo.setFont(new Font("Arial", Font.PLAIN, 13));
+        textModelo.setEnabled(false);
+        textModelo.setBackground(new Color(204, 204, 204));
+        textModelo.setDisabledTextColor(Color.gray);
         reserva.add(textModelo);
 
         // Caixa de texto - placa
@@ -211,6 +217,9 @@ public class Tela2 extends JFrame {
         JTextField textPlaca = new JTextField("Escreva aqui");
         textPlaca.setBounds(155, 240, 200, 30);
         textPlaca.setFont(new Font("Arial", Font.PLAIN, 13));
+        textPlaca.setEnabled(false);
+        textPlaca.setBackground(new Color(204, 204, 204));
+        textPlaca.setDisabledTextColor(Color.gray);
         reserva.add(textPlaca);
 
         // Caixa de seleção - carro
@@ -228,29 +237,52 @@ public class Tela2 extends JFrame {
 
         carroComboBox.addActionListener(e -> {
             String selectedValue = (String) carroComboBox.getSelectedItem();
-            boolean enableCamposCarro = selectedValue.equals("Sim");
-            textCor.setEnabled(enableCamposCarro);
-            textModelo.setEnabled(enableCamposCarro);
-            textPlaca.setEnabled(enableCamposCarro);
+
+            if(selectedValue.equals("Sim")){
+                textCor.setEnabled(true);
+                textCor.setBackground(Color.WHITE);
+
+                textModelo.setEnabled(true);
+                textModelo.setBackground(Color.WHITE);
+
+                textPlaca.setEnabled(true);
+                textPlaca.setBackground(Color.WHITE);
+
+            }else if (selectedValue.equals("Não")){
+                textCor.setEnabled(false);
+                textCor.setBackground(new Color(204, 204, 204));
+                textCor.setDisabledTextColor(Color.gray);
+
+                textModelo.setEnabled(false);
+                textModelo.setBackground(new Color(204, 204, 204));
+                textModelo.setDisabledTextColor(Color.gray);
+
+                textPlaca.setEnabled(false);
+                textPlaca.setBackground(new Color(204, 204, 204));
+                textPlaca.setDisabledTextColor(Color.gray);
+            }
+
         });
 
 
         // Caixa de texto - observação
-        JLabel rg = new JLabel("<html>OBSERVAÇÕES SOBRE <br>O QUARTO: </html>");
+        JLabel rg = new JLabel("<html>OBSERVAÇÕES <br>SOBRE O QUARTO: </html>");
         rg.setBounds(12, 300,200,50);
         rg.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(rg);
 
-        JTextField textRg = new JTextField("Escreva aqui");
-        textRg.setBounds(155, 310, 250, 30);
+        JTextArea textRg = new JTextArea("Escreva aqui");
+        textRg.setLineWrap(true);
+        textRg.setWrapStyleWord(true);
+        textRg.setBounds(165, 310, 450, 130);
         textRg.setFont(new Font("Arial", Font.PLAIN, 13));
         reserva.add(textRg);
 
 
         // Botão de Cadastro
         JButton jButton = new JButton("FAZER RESERVA");
-        jButton.setBounds(300, 450, 140, 40);
-        jButton.setFont(new Font("Arial", Font.BOLD, 10));
+        jButton.setBounds(300, 470, 150, 50);
+        jButton.setFont(new Font("Arial", Font.BOLD, 14));
         jButton.setForeground(Color.WHITE);
         jButton.setBackground(new Color(93, 96, 93));
         jButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
