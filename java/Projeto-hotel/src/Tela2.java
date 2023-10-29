@@ -21,7 +21,7 @@ public class Tela2 extends JFrame {
         add(BorderLayout.CENTER, abas);
 
         setTitle("Cadastro");
-        setSize(800, 600);
+        setSize(800, 620);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -279,7 +279,7 @@ public class Tela2 extends JFrame {
         reserva.add(textRg);
 
 
-        // Botão de Cadastro
+        // Botão de Reserva
         JButton jButton = new JButton("FAZER RESERVA");
         jButton.setBounds(300, 470, 150, 50);
         jButton.setFont(new Font("Arial", Font.BOLD, 14));
