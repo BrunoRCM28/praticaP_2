@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexaoBD{
-    private static final String URL = "jdbc:sqlserver://REGULUS:1433;databaseNome=BD23632";
+    private static final String URL = "jdbc:sqlserver://regulus.cotuca.unicamp.br:1433;databaseNome=BD23632; integratedSecurity=true; encrypt=true; trustServerCertificate=true";
     private static final String USUARIO = "BD23632";
     private static final String SENHA = "BD23632";
 
