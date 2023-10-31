@@ -302,8 +302,6 @@ public class Tela2 extends JFrame {
 
     public void teste(ActionEvent actionEvent) {
         Connection conexao = ConexaoBD.conectar();
-        JOptionPane.showMessageDialog(null, "Grande dia", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
-        System.out.println("Grande dia");
     }
 
     public static void main(String[] args) {
