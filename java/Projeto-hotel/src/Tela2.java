@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 
@@ -300,6 +301,7 @@ public class Tela2 extends JFrame {
     }
 
     public void teste(ActionEvent actionEvent) {
+        Connection conexao = ConexaoBD.conectar();
         JOptionPane.showMessageDialog(null, "Grande dia", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
         System.out.println("Grande dia");
     }
