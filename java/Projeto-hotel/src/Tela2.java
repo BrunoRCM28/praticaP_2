@@ -99,8 +99,8 @@ public class Tela2 extends JFrame {
         cadastro.add(telefone);
 
         JTextField textTelefone = new JTextField("Escreva aqui");
-        textTelefone.setBounds(475, 240, 250, 30);
         textTelefone.setFont(new Font("Arial", Font.PLAIN, 13));
+        textTelefone.setBounds(475, 240, 250, 30);
         cadastro.add(textTelefone);
 
         // Caixa de seleção - Gênero
