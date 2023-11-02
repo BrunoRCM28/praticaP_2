@@ -11,13 +11,9 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/jars/mssql-jdbc-12.4.2.jre8.jar!/" />
-          <root url="jar://$MODULE_DIR$/lib/jars/mssql-jdbc-12.4.2.jre11.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/lib/jars/mssql-jdbc-12.4.2.jre8-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/lib/jars/mssql-jdbc-12.4.2.jre11-sources.jar!/" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
   </component>
