@@ -10,10 +10,14 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/jars/mssql-jdbc-12.4.2.jre8.jar!/" />
+          <root url="file://$MODULE_DIR$/lib/jars" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/lib/jars" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/lib/jars" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/jars" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>
