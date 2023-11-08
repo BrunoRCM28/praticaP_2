@@ -138,7 +138,7 @@ public class Tela2 extends JFrame {
             }
         });
         cadastro.add(jButton);
-        //jButton.addActionListener(this::teste);
+        jButton.addActionListener(this::entrar);
     }
 
     public void janelaReserva(){
@@ -301,6 +301,16 @@ public class Tela2 extends JFrame {
         });
         reserva.add(jButton);
         //jButton.addActionListener(this::teste);
+    }
+
+    public void entrar(ActionEvent actionEvent){
+        Connection conexao = ConexaoBD.conectar();
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new Tela2();
+        });
     }
 
 }
