@@ -8,6 +8,7 @@ import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 
 
+
 public class Tela2 extends JFrame {
 
     //abas
@@ -305,6 +306,7 @@ public class Tela2 extends JFrame {
 
     public void entrar(ActionEvent actionEvent){
         Connection conexao = ConexaoBD.conectar();
+
     }
 
     public static void main(String[] args) {
