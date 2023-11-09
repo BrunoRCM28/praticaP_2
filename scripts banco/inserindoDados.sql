@@ -41,8 +41,8 @@ values('Bruno', 'Moraes', 99999999999, 19222222222, 'bruno@gmail.com', 750232312
 
 select * from hotel.Hospedes
 
-insert into hotel.Reserva(cpf, numeroQuarto, quantidadeDePessoas, observacao)
-values(99999999999, 2, 3, 'Deixar sem travesseiros')
+insert into hotel.Reserva(cpf, numeroQuarto, quantidadeDePessoas, observacao,dia_checkin,dia_checkout)
+values(99999999999, 2, 3, 'Deixar sem travesseiros',Convert(date, '04-05-1960',103),Convert(date, '04-06-1960',103))
 
 select * from hotel.Reserva
 
