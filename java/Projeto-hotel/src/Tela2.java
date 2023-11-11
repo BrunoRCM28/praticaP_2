@@ -6,6 +6,8 @@ import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 
 
@@ -13,9 +15,28 @@ public class Tela2 extends JFrame {
 
     //abas
     JTabbedPane abas = new JTabbedPane();
-
     JPanel cadastro = new JPanel();
     JPanel reserva = new JPanel();
+
+    //dados - Cadastro
+    JTextField textNome;
+    JTextField textSobrenome;
+    JTextField textCPF;
+    JTextField textTelefone;
+    JTextField textRg;
+    JTextField textEmail;
+    JComboBox<String> generoComboBox;
+
+    //dados - reserva
+    JTextField textCpfClientes;
+    JTextField textPessoas;
+    JTextField textNumero;
+    JTextField textCor;
+    JTextField textModelo;
+    JTextField textPlaca;
+    JComboBox<String> carroComboBox;
+    JTextArea textObservacoes;
+
 
     public Tela2() {
         janelaCadastro();
@@ -47,7 +68,7 @@ public class Tela2 extends JFrame {
         nome.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(nome);
 
-        JTextField textNome = new JTextField("Escreva Aqui");
+        textNome = new JTextField();
         textNome.setBounds(85, 100, 250, 30);
         textNome.setFont(new Font("Arial", Font.PLAIN, 13));
         cadastro.add(textNome);
@@ -58,7 +79,7 @@ public class Tela2 extends JFrame {
         sobrenome.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(sobrenome);
 
-        JTextField textSobrenome = new JTextField("Escreva aqui");
+        textSobrenome = new JTextField();
         textSobrenome.setBounds(475, 100, 250, 30);
         textSobrenome.setFont(new Font("Arial", Font.PLAIN, 13));
         cadastro.add(textSobrenome);
@@ -69,7 +90,7 @@ public class Tela2 extends JFrame {
         cpf.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(cpf);
 
-        JTextField textCPF = new JTextField("Escreva aqui");
+        textCPF = new JTextField();
         textCPF.setBounds(85, 170, 250, 30);
         textCPF.setFont(new Font("Arial", Font.PLAIN, 13));
         cadastro.add(textCPF);
@@ -80,7 +101,7 @@ public class Tela2 extends JFrame {
         rg.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(rg);
 
-        JTextField textRg = new JTextField("Escreva aqui");
+        textRg = new JTextField();
         textRg.setBounds(475, 170, 250, 30);
         textRg.setFont(new Font("Arial", Font.PLAIN, 13));
         cadastro.add(textRg);
@@ -91,7 +112,7 @@ public class Tela2 extends JFrame {
         email.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(email);
 
-        JTextField textEmail = new JTextField("Escreva aqui");
+        textEmail = new JTextField();
         textEmail.setBounds(85, 240, 250, 30);
         textEmail.setFont(new Font("Arial", Font.PLAIN, 13));
         cadastro.add(textEmail);
@@ -102,7 +123,7 @@ public class Tela2 extends JFrame {
         telefone.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(telefone);
 
-        JTextField textTelefone = new JTextField("Escreva aqui");
+        textTelefone = new JTextField();
         textTelefone.setFont(new Font("Arial", Font.PLAIN, 13));
         textTelefone.setBounds(475, 240, 250, 30);
         cadastro.add(textTelefone);
@@ -114,7 +135,7 @@ public class Tela2 extends JFrame {
         generoLabel.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(generoLabel);
 
-        JComboBox<String> generoComboBox = new JComboBox<>(generos);
+        generoComboBox = new JComboBox<>(generos);
         generoComboBox.setBounds(85, 310, 150, 30);
         generoComboBox.setFont(new Font("Arial", Font.PLAIN, 13));
         generoComboBox.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -139,7 +160,7 @@ public class Tela2 extends JFrame {
             }
         });
         cadastro.add(jButton);
-        jButton.addActionListener(this::entrar);
+        jButton.addActionListener(this::inserir);
     }
 
     public void janelaReserva(){
@@ -158,7 +179,7 @@ public class Tela2 extends JFrame {
         cpfClientes.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(cpfClientes);
 
-        JTextField textCpfClientes = new JTextField("Escreva Aqui");
+        textCpfClientes = new JTextField();
         textCpfClientes.setBounds(150, 100, 250, 30);
         textCpfClientes.setFont(new Font("Arial", Font.PLAIN, 13));
         reserva.add(textCpfClientes);
@@ -169,7 +190,7 @@ public class Tela2 extends JFrame {
         pessoas.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(pessoas);
 
-        JTextField textPessoas = new JTextField("Escreva aqui");
+        textPessoas = new JTextField();
         textPessoas.setBounds(605, 100, 150, 30);
         textPessoas.setFont(new Font("Arial", Font.PLAIN, 13));
         reserva.add(textPessoas);
@@ -180,7 +201,7 @@ public class Tela2 extends JFrame {
         numero.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(numero);
 
-        JTextField textNumero = new JTextField("Escreva aqui");
+        textNumero = new JTextField();
         textNumero.setBounds(135, 170, 120, 30);
         textNumero.setFont(new Font("Arial", Font.PLAIN, 13));
         reserva.add(textNumero);
@@ -191,7 +212,7 @@ public class Tela2 extends JFrame {
         cor.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(cor);
 
-        JTextField textCor = new JTextField("Escreva aqui");
+        textCor = new JTextField();
         textCor.setBounds(574, 170, 180, 30);
         textCor.setFont(new Font("Arial", Font.PLAIN, 13));
         textCor.setEnabled(false);
@@ -205,7 +226,7 @@ public class Tela2 extends JFrame {
         modelo.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(modelo);
 
-        JTextField textModelo = new JTextField("Escreva aqui");
+        textModelo = new JTextField();
         textModelo.setBounds(530, 240, 225, 30);
         textModelo.setFont(new Font("Arial", Font.PLAIN, 13));
         textModelo.setEnabled(false);
@@ -219,7 +240,7 @@ public class Tela2 extends JFrame {
         placa.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(placa);
 
-        JTextField textPlaca = new JTextField("Escreva aqui");
+        textPlaca = new JTextField();
         textPlaca.setBounds(155, 240, 200, 30);
         textPlaca.setFont(new Font("Arial", Font.PLAIN, 13));
         textPlaca.setEnabled(false);
@@ -234,7 +255,7 @@ public class Tela2 extends JFrame {
         carroLabel.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(carroLabel);
 
-        JComboBox<String> carroComboBox = new JComboBox<>(carro);
+        carroComboBox = new JComboBox<>(carro);
         carroComboBox.setBounds(330, 170, 100, 30);
         carroComboBox.setFont(new Font("Arial", Font.PLAIN, 13));
         carroComboBox.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -260,6 +281,7 @@ public class Tela2 extends JFrame {
 
                 textModelo.setEnabled(false);
                 textModelo.setBackground(new Color(204, 204, 204));
+
                 textModelo.setDisabledTextColor(Color.gray);
 
                 textPlaca.setEnabled(false);
@@ -271,17 +293,17 @@ public class Tela2 extends JFrame {
 
 
         // Caixa de texto - observação
-        JLabel rg = new JLabel("<html>OBSERVAÇÕES <br>SOBRE O QUARTO: </html>");
-        rg.setBounds(12, 300,200,50);
-        rg.setFont(new Font("Arial", Font.BOLD, 15));
-        reserva.add(rg);
+        JLabel observacoes = new JLabel("<html>OBSERVAÇÕES <br>SOBRE O QUARTO: </html>");
+        observacoes.setBounds(12, 300,200,50);
+        observacoes.setFont(new Font("Arial", Font.BOLD, 15));
+        reserva.add(observacoes);
 
-        JTextArea textRg = new JTextArea("Escreva aqui");
-        textRg.setLineWrap(true);
-        textRg.setWrapStyleWord(true);
-        textRg.setBounds(165, 310, 450, 130);
-        textRg.setFont(new Font("Arial", Font.PLAIN, 13));
-        reserva.add(textRg);
+        textObservacoes = new JTextArea();
+        textObservacoes.setLineWrap(true);
+        textObservacoes.setWrapStyleWord(true);
+        textObservacoes.setBounds(165, 310, 450, 130);
+        textObservacoes.setFont(new Font("Arial", Font.PLAIN, 13));
+        reserva.add(textObservacoes);
 
 
         // Botão de Reserva
@@ -307,6 +329,85 @@ public class Tela2 extends JFrame {
     public void entrar(ActionEvent actionEvent){
         Connection conexao = ConexaoBD.conectar();
 
+        ConexaoBD selectBD = new ConexaoBD();
+        selectBD.setConexao(conexao);
+
+        selectBD.select();
+
+    }
+
+    public void inserir(ActionEvent actionEvent){
+        if (textCpfClientes.getText().isEmpty() || textPessoas.getText().isEmpty() || textNumero.getText().isEmpty() || textCor.getText().isEmpty() || textModelo.getText().isEmpty() || textPlaca.getText().isEmpty() || textObservacoes.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos os campos precisam estar preenchidos para fazer a reserva.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
+            return;
+        }else{
+            Connection conexao = ConexaoBD.conectar();
+            ConexaoBD inserirBD = new ConexaoBD();
+            inserirBD.setConexao(conexao);
+
+            String cpfString = textCpfClientes.getText().trim();
+            int cpf = Integer.parseInt(cpfString);
+
+            String numeroString = textNumero.getText().trim();
+            int numero = Integer.parseInt(numeroString);
+
+            String pessoasString = textPessoas.getText().trim();
+            int pessoas = Integer.parseInt(pessoasString);
+
+            String observacao = textObservacoes.getText();
+            String sobrenome = textSobrenome.getText();
+
+
+            String email = textEmail.getText();
+            char sexo;
+
+            if (generoComboBox.getSelectedItem().equals("Masculino")){
+                sexo = 'M';
+            }else if(generoComboBox.getSelectedItem().equals("Feminino")){
+                sexo = 'F';
+            }else{
+                sexo = 'O';
+            }
+
+            inserirBD.insertBD(nome, sobrenome, cpf, telefone, email, rg, sexo);
+        }
+
+    }
+
+    public void inserir(ActionEvent actionEvent){
+        if (textNome.getText().isEmpty() || textSobrenome.getText().isEmpty() || textCPF.getText().isEmpty() || textTelefone.getText().isEmpty() || textRg.getText().isEmpty() || textEmail.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos os campos precisam estar preenchidos para fazer o cadastro.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
+            return;
+        }else{
+            Connection conexao = ConexaoBD.conectar();
+            ConexaoBD inserirBD = new ConexaoBD();
+            inserirBD.setConexao(conexao);
+
+            String nome = textNome.getText();
+            String sobrenome = textSobrenome.getText();
+
+            String cpfString = textCPF.getText().trim();
+            long cpf = Long.parseLong(cpfString);
+
+            String telefoneString = textTelefone.getText().trim();
+            long telefone = Long.parseLong(telefoneString);
+
+            String rgString = textRg.getText().trim();
+            long rg = Long.parseLong(rgString);
+
+            String email = textEmail.getText();
+            char sexo;
+
+            if (generoComboBox.getSelectedItem().equals("Masculino")){
+                sexo = 'M';
+            }else if(generoComboBox.getSelectedItem().equals("Feminino")){
+                sexo = 'F';
+            }else{
+                sexo = 'O';
+            }
+
+            inserirBD.insertBD(nome, sobrenome, cpf, telefone, email, rg, sexo);
+        }
     }
 
     public static void main(String[] args) {
