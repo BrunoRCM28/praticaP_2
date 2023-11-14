@@ -379,7 +379,7 @@ public class Tela2 extends JFrame {
             }
         });
         reserva.add(jButton);
-        //jButton.addActionListener(this::teste);
+        jButton.addActionListener(this::inserirReserva);
     }
 
     public void entrar(ActionEvent actionEvent){
@@ -389,44 +389,6 @@ public class Tela2 extends JFrame {
         selectBD.setConexao(conexao);
 
         selectBD.select();
-
-    }
-
-    public void inserir(ActionEvent actionEvent){
-        if (textCpfClientes.getText().isEmpty() || textPessoas.getText().isEmpty() || textNumero.getText().isEmpty() || textCor.getText().isEmpty() || textModelo.getText().isEmpty() || textPlaca.getText().isEmpty() || textObservacoes.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Todos os campos precisam estar preenchidos para fazer a reserva.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
-            return;
-        }else{
-            Connection conexao = ConexaoBD.conectar();
-            ConexaoBD inserirBD = new ConexaoBD();
-            inserirBD.setConexao(conexao);
-
-            String cpfString = textCpfClientes.getText().trim();
-            int cpf = Integer.parseInt(cpfString);
-
-            String numeroString = textNumero.getText().trim();
-            int numero = Integer.parseInt(numeroString);
-
-            String pessoasString = textPessoas.getText().trim();
-            int pessoas = Integer.parseInt(pessoasString);
-
-            String observacao = textObservacoes.getText();
-            String sobrenome = textSobrenome.getText();
-
-
-            String email = textEmail.getText();
-            char sexo;
-
-            if (generoComboBox.getSelectedItem().equals("Masculino")){
-                sexo = 'M';
-            }else if(generoComboBox.getSelectedItem().equals("Feminino")){
-                sexo = 'F';
-            }else{
-                sexo = 'O';
-            }
-
-            //inserirBD.insertBD(nome, sobrenome, cpf, telefone, email, rg, sexo);
-        }
 
     }
 
@@ -462,11 +424,92 @@ public class Tela2 extends JFrame {
                 sexo = 'O';
             }
 
-            inserirBD.insertBD(nome, sobrenome, cpf, telefone, email, rg, sexo);
+            inserirBD.insertHospede(nome, sobrenome, cpf, telefone, email, rg, sexo);
         }
     }
 
 
+    public void inserirReserva(ActionEvent actionEvent){
+        if (textCpfClientes.getText().isEmpty() || textPessoas.getText().isEmpty() || textNumero.getText().isEmpty() || textCor.getText().isEmpty() || textModelo.getText().isEmpty() || textPlaca.getText().isEmpty() || textObservacoes.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos os campos precisam estar preenchidos para fazer a reserva.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
+            return;
+        }else{
+            Connection conexao = ConexaoBD.conectar();
+            ConexaoBD inserirBD = new ConexaoBD();
+            inserirBD.setConexao(conexao);
+
+            String cpfString = textCpfClientes.getText().trim();
+            long cpf = Long.parseLong(cpfString);
+
+            String numeroString = textNumero.getText().trim();
+            int numero = Integer.parseInt(numeroString);
+
+            String pessoasString = textPessoas.getText().trim();
+            int pessoas = Integer.parseInt(pessoasString);
+
+            String observacao = textObservacoes.getText();
+
+            int diaEntrada = (int)diaCheckin.getSelectedItem();
+            String mesEntrada = (String) mesCheckin.getSelectedItem();
+            int mes;
+            switch (mesEntrada){
+                case "Janeiro":
+                    mes = 1;
+                    break;
+                case "Favereiro":
+                    mes = 2;
+                    break;
+                case "Março":
+                    mes = 3;
+                    break;
+                case "Abril":
+                    mes = 4;
+                    break;
+                case "Maio":
+                    mes = 5;
+                    break;
+                case "Junho":
+                    mes = 6;
+                    break;
+                case "Julho":
+                    mes = 7;
+                    break;
+                case "Agosto":
+                    mes = 8;
+                    break;
+                case "Setembro":
+                    mes = 9;
+                    break;
+                case "Outubro":
+                    mes = 10;
+                    break;
+                case "Novembro":
+                    mes = 11;
+                    break;
+                case "Dezembro":
+                    mes = 12;
+                    break;
+                default:
+                    mes = 0;
+            }
+            int anoEntrada = (int)anoCheckin.getSelectedItem();
+
+            int diaSaida = (int)diaCheckout.getSelectedItem();
+            int mesSaida = (int)mesCheckout.getSelectedItem();
+            int anoSaida = (int)anoCheckout.getSelectedItem();
+
+            if (carroComboBox.getSelectedItem().equals("Sim")){
+                String cor = textCor.getText();
+                String modelo = textModelo.getText();
+                String placa = textPlaca.getText();
+
+                inserirBD.insertCarro(cpf, cor, modelo, placa);
+            }
+
+            inserirBD.insertReserva(cpf, numero, pessoas, observacao, diaEntrada, mes, anoEntrada, diaSaida, mesSaida, anoSaida);
+        }
+
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
