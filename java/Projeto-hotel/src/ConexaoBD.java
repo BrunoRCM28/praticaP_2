@@ -56,15 +56,13 @@ public class ConexaoBD{
         }
     }
 
-    public void insertBD(String nome, String sobrenome, long cpf , long telefone, String email, long rg, char sexo) {
+    public void insertHospede(String nome, String sobrenome, long cpf , long telefone, String email, long rg, char sexo) {
         String insert = "insert into hotel.Hospedes(prenome , sobrenome, cpf, telefone, e_mail, rg, sexo)" +
                         "values('"+nome+"', '"+sobrenome+"', "+cpf+", "+telefone+", '"+email+"', "+rg+", '"+sexo+"')";
         try {
             Statement statement = conexao.createStatement();
             int rowsAffected = statement.executeUpdate(insert);
 
-            //StringBuilder resultados = new StringBuilder();
-            //ResultSetMetaData metaData = resultSet.getMetaData();
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Cadastro bem-sucedido", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
             } else {
@@ -74,6 +72,45 @@ public class ConexaoBD{
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Ocorreu um erro ao executar o cadastro.", "Erro no cadastro", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    public void insertReserva(long cpf , int numeroQuarto, int quantidadeDePessoas, String observacao, int diaCheckin, int mesCheckin, int anoCheckin, int diaCheckout, int mesCheckout, int anoCheckout) {
+        String insert = "insert into hotel.Reserva(cpf, numeroQuarto, quantidadeDePessoas, observacao, dia_checkin, dia_checkout)" +
+                        "values("+cpf+", "+numeroQuarto+", "+quantidadeDePessoas+", '"+observacao+"',Convert(date, '"+diaCheckin+"-"+mesCheckin+"-"+anoCheckin+"',103),Convert(date, '"+diaCheckout+"-"+mesCheckout+"-"+anoCheckout+"',103))";
+        try {
+            Statement statement = conexao.createStatement();
+            int rowsAffected = statement.executeUpdate(insert);
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Reserva bem-sucedida", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro na sua Reserva.", "Erro no cadastro", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao executar a Reserva.", "Erro no cadastro", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    }
+
+    public void insertCarro(long cpf, String cor, String modelo, String placa) {
+        String insert = "insert into hotel.Estacionamento(cpf, cor, modelo, placa)" +
+                "values("+cpf+", '"+cor+"', '"+modelo+"', '"+placa+"')";
+        try {
+            Statement statement = conexao.createStatement();
+            int rowsAffected = statement.executeUpdate(insert);
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Reserva da vaga bem-sucedida", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro na Reserva da vaga.", "Erro no cadastro", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao executar a Reserva da vaga.", "Erro no cadastro", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
