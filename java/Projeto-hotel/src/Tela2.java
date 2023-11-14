@@ -430,6 +430,43 @@ public class Tela2 extends JFrame {
 
     }
 
+    public void inserir(ActionEvent actionEvent){
+        if (textNome.getText().isEmpty() || textSobrenome.getText().isEmpty() || textCPF.getText().isEmpty() || textTelefone.getText().isEmpty() || textRg.getText().isEmpty() || textEmail.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Todos os campos precisam estar preenchidos para fazer o cadastro.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
+            return;
+        }else{
+            Connection conexao = ConexaoBD.conectar();
+            ConexaoBD inserirBD = new ConexaoBD();
+            inserirBD.setConexao(conexao);
+
+            String nome = textNome.getText();
+            String sobrenome = textSobrenome.getText();
+
+            String cpfString = textCPF.getText().trim();
+            long cpf = Long.parseLong(cpfString);
+
+            String telefoneString = textTelefone.getText().trim();
+            long telefone = Long.parseLong(telefoneString);
+
+            String rgString = textRg.getText().trim();
+            long rg = Long.parseLong(rgString);
+
+            String email = textEmail.getText();
+            char sexo;
+
+            if (generoComboBox.getSelectedItem().equals("Masculino")){
+                sexo = 'M';
+            }else if(generoComboBox.getSelectedItem().equals("Feminino")){
+                sexo = 'F';
+            }else{
+                sexo = 'O';
+            }
+
+            inserirBD.insertBD(nome, sobrenome, cpf, telefone, email, rg, sexo);
+        }
+    }
+
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
