@@ -8,7 +8,7 @@ import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-
+import java.time.LocalDate;
 
 
 public class Tela2 extends JFrame {
@@ -36,6 +36,13 @@ public class Tela2 extends JFrame {
     JTextField textPlaca;
     JComboBox<String> carroComboBox;
     JTextArea textObservacoes;
+
+    JComboBox<Integer> diaCheckin;
+    JComboBox<String> mesCheckin;
+    JComboBox<Integer> anoCheckin;
+    JComboBox<Integer> diaCheckout;
+    JComboBox<String> mesCheckout;
+    JComboBox<Integer> anoCheckout;
 
 
     public Tela2() {
@@ -301,9 +308,58 @@ public class Tela2 extends JFrame {
         textObservacoes = new JTextArea();
         textObservacoes.setLineWrap(true);
         textObservacoes.setWrapStyleWord(true);
-        textObservacoes.setBounds(165, 310, 450, 130);
+        textObservacoes.setBounds(165, 310, 250, 130);
         textObservacoes.setFont(new Font("Arial", Font.PLAIN, 13));
         reserva.add(textObservacoes);
+
+        //Chacek Box - data checkin
+        JLabel dataLabel = new JLabel("CHECKIN: ");
+        dataLabel.setBounds(430, 300, 200, 50);
+        dataLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        reserva.add(dataLabel);
+
+        diaCheckin = new JComboBox<>();
+        for (int i = 1; i <= 31; i++) {
+            diaCheckin.addItem(i);
+        }
+        diaCheckin.setBounds(515, 310, 50, 30);
+        reserva.add(diaCheckin);
+
+        String[] months = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
+        mesCheckin = new JComboBox<>(months);
+        mesCheckin.setBounds(575, 310, 100, 30);
+        reserva.add(mesCheckin);
+
+        anoCheckin = new JComboBox<>();
+        int currentYear = LocalDate.now().getYear();
+        anoCheckin.addItem(currentYear);
+        anoCheckin.setBounds(685, 310, 70, 30);
+        reserva.add(anoCheckin);
+
+
+        //Chacek Box - data Checkout
+        JLabel dataCheck = new JLabel("CHECKOUT: ");
+        dataCheck.setBounds(425, 370, 200, 50);
+        dataCheck.setFont(new Font("Arial", Font.BOLD, 15));
+        reserva.add(dataCheck);
+
+        diaCheckout = new JComboBox<>();
+        for (int i = 1; i <= 31; i++) {
+            diaCheckout.addItem(i);
+        }
+        diaCheckout.setBounds(520, 380, 50, 30);
+        reserva.add(diaCheckout);
+
+        String[] mesCheck = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
+        mesCheckout = new JComboBox<>(months);
+        mesCheckout.setBounds(580, 380, 100, 30);
+        reserva.add(mesCheckout);
+
+        anoCheckout = new JComboBox<>();
+        int anoCheck = LocalDate.now().getYear();
+        anoCheckout.addItem(currentYear);
+        anoCheckout.setBounds(690, 380, 70, 30);
+        reserva.add(anoCheckout);
 
 
         // Botão de Reserva
@@ -369,46 +425,11 @@ public class Tela2 extends JFrame {
                 sexo = 'O';
             }
 
-            inserirBD.insertBD(nome, sobrenome, cpf, telefone, email, rg, sexo);
+            //inserirBD.insertBD(nome, sobrenome, cpf, telefone, email, rg, sexo);
         }
 
     }
 
-    public void inserir(ActionEvent actionEvent){
-        if (textNome.getText().isEmpty() || textSobrenome.getText().isEmpty() || textCPF.getText().isEmpty() || textTelefone.getText().isEmpty() || textRg.getText().isEmpty() || textEmail.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Todos os campos precisam estar preenchidos para fazer o cadastro.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
-            return;
-        }else{
-            Connection conexao = ConexaoBD.conectar();
-            ConexaoBD inserirBD = new ConexaoBD();
-            inserirBD.setConexao(conexao);
-
-            String nome = textNome.getText();
-            String sobrenome = textSobrenome.getText();
-
-            String cpfString = textCPF.getText().trim();
-            long cpf = Long.parseLong(cpfString);
-
-            String telefoneString = textTelefone.getText().trim();
-            long telefone = Long.parseLong(telefoneString);
-
-            String rgString = textRg.getText().trim();
-            long rg = Long.parseLong(rgString);
-
-            String email = textEmail.getText();
-            char sexo;
-
-            if (generoComboBox.getSelectedItem().equals("Masculino")){
-                sexo = 'M';
-            }else if(generoComboBox.getSelectedItem().equals("Feminino")){
-                sexo = 'F';
-            }else{
-                sexo = 'O';
-            }
-
-            inserirBD.insertBD(nome, sobrenome, cpf, telefone, email, rg, sexo);
-        }
-    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
