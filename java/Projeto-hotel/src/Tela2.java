@@ -9,6 +9,8 @@ import javax.swing.border.MatteBorder;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Tela2 extends JFrame {
@@ -44,6 +46,8 @@ public class Tela2 extends JFrame {
     JComboBox<String> mesCheckout;
     JComboBox<Integer> anoCheckout;
 
+    Map<String, Integer> mesesMap;
+
 
     public Tela2() {
         janelaCadastro();
@@ -53,10 +57,29 @@ public class Tela2 extends JFrame {
         abas.addTab("Reserva", reserva);
         add(BorderLayout.CENTER, abas);
 
+        mesesMap = criarMapaMeses();
+
         setTitle("Cadastro");
         setSize(800, 620);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+    }
+
+    private Map<String, Integer> criarMapaMeses() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Janeiro", 1);
+        map.put("Fevereiro", 2);
+        map.put("Março", 3);
+        map.put("Abril", 4);
+        map.put("Maio", 5);
+        map.put("Junho", 6);
+        map.put("Julho", 7);
+        map.put("Agosto", 8);
+        map.put("Setembro", 9);
+        map.put("Outubro", 10);
+        map.put("Novembro", 11);
+        map.put("Dezembro", 12);
+        return map;
     }
 
     public void janelaCadastro() {
@@ -450,52 +473,14 @@ public class Tela2 extends JFrame {
             String observacao = textObservacoes.getText();
 
             int diaEntrada = (int)diaCheckin.getSelectedItem();
+
             String mesEntrada = (String) mesCheckin.getSelectedItem();
-            int mes;
-            switch (mesEntrada){
-                case "Janeiro":
-                    mes = 1;
-                    break;
-                case "Favereiro":
-                    mes = 2;
-                    break;
-                case "Março":
-                    mes = 3;
-                    break;
-                case "Abril":
-                    mes = 4;
-                    break;
-                case "Maio":
-                    mes = 5;
-                    break;
-                case "Junho":
-                    mes = 6;
-                    break;
-                case "Julho":
-                    mes = 7;
-                    break;
-                case "Agosto":
-                    mes = 8;
-                    break;
-                case "Setembro":
-                    mes = 9;
-                    break;
-                case "Outubro":
-                    mes = 10;
-                    break;
-                case "Novembro":
-                    mes = 11;
-                    break;
-                case "Dezembro":
-                    mes = 12;
-                    break;
-                default:
-                    mes = 0;
-            }
+            int mes= mesesMap.getOrDefault(mesEntrada, 0);
             int anoEntrada = (int)anoCheckin.getSelectedItem();
 
             int diaSaida = (int)diaCheckout.getSelectedItem();
-            int mesSaida = (int)mesCheckout.getSelectedItem();
+            String mesSaida = (String)mesCheckout.getSelectedItem();
+            int mesSa = mesesMap.getOrDefault(mesSaida, 0);
             int anoSaida = (int)anoCheckout.getSelectedItem();
 
             if (carroComboBox.getSelectedItem().equals("Sim")){
@@ -506,7 +491,7 @@ public class Tela2 extends JFrame {
                 inserirBD.insertCarro(cpf, cor, modelo, placa);
             }
 
-            inserirBD.insertReserva(cpf, numero, pessoas, observacao, diaEntrada, mes, anoEntrada, diaSaida, mesSaida, anoSaida);
+            inserirBD.insertReserva(cpf, numero, pessoas, observacao, diaEntrada, mes, anoEntrada, diaSaida, mesSa, anoSaida);
         }
 
     }
