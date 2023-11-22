@@ -57,4 +57,8 @@ create table hotel.Reserva(
 		references hotel.Quarto(numeroQuarto)
 )
 
+ALTER TABLE hotel.Reserva
+ADD dia_checkin DATE NOT NULL,
+    dia_checkout DATE NOT NULL;
+
 drop table hotel.Reserva
