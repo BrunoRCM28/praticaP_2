@@ -42,7 +42,7 @@ values('Bruno', 'Moraes', 99999999999, 19222222222, 'bruno@gmail.com', 750232312
 select * from hotel.Hospedes
 
 insert into hotel.Reserva(cpf, numeroQuarto, quantidadeDePessoas, observacao,dia_checkin,dia_checkout)
-values(99999999999, 2, 3, 'Deixar sem travesseiros',Convert(date, '04-05-1960',103),Convert(date, '04-06-1960',103))
+values(99999999999, 2, 3, 'Deixar sem travesseiros',Convert(date, '21-11-2023',103),Convert(date, '24-11-2023',103))
 
 select * from hotel.Reserva
 
@@ -56,7 +56,7 @@ from hotel.Hospedes as H,
 	 hotel.Reserva as R,
 	 hotel.TipoQuarto as T,
 	 hotel.Quarto as Q
-where H.prenome = 'pedro' and
+where H.prenome = 'Bruno' and
 	  H.cpf = R.cpf and 
 	  R.numeroQuarto = Q.numeroQuarto and
 	  Q.id_tipo = T.id_Tipo
