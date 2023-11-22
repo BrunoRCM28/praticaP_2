@@ -1,0 +1,98 @@
+body
+{
+
+    background-image: linear-gradient(to bottom right, rgb(176, 218, 172),rgb(154, 113, 230));
+}
+
+button#sair{
+    width: 100px;
+    height: 30px;
+    position: relative;
+    left: 1450px;
+}
+
+article
+{
+    background-color: rgb(255, 255, 255);
+    width:  50%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 20%;
+    padding: 20px;
+}
+
+tr td
+{
+    padding: 10px;
+    position: relative;
+    left: 50px;
+}
+
+tr td button
+{
+    border: none;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    top: -10px;
+}
+
+tr td button#edi
+{
+    background: rgba(0, 106, 255, 0.484);
+    color: white;
+}
+
+tr td button#ex
+{
+    background: rgb(254, 0, 0);
+    color: white;
+}
+
+h3{
+    font-size: 15px;
+    position: relative;
+    left: 100px;
+
+}
+a{
+    text-decoration: none;
+}
+h1
+{
+    font-size: 40px;
+    color:  rgb(87, 219, 75)
+}
+h2
+{
+    color: rgba(87, 219, 75);
+    font-size: 25px;
+}
+
+button#b
+{
+    border: none;
+    width: 100px;
+    height: 50px;
+    position: relative;
+    left: 250px;
+    background-color: gray;
+    color: white;
+}
+
+a#c
+{
+    background-color: blue;
+    text-decoration: none;
+    color: white;
+    border: 5px blue solid;
+}
+
+a#d
+{
+    background-color: red;
+    text-decoration: none;
+    color: white;
+    border: 5px red solid;
+}
