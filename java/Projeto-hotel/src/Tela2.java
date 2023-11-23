@@ -411,7 +411,6 @@ public class Tela2 extends JFrame {
         ConexaoBD selectBD = new ConexaoBD();
         selectBD.setConexao(conexao);
 
-        selectBD.select();
 
     }
 
@@ -483,6 +482,8 @@ public class Tela2 extends JFrame {
             int mesSa = mesesMap.getOrDefault(mesSaida, 0);
             int anoSaida = (int)anoCheckout.getSelectedItem();
 
+            inserirBD.insertReserva(cpf, numero, pessoas, observacao, diaEntrada, mes, anoEntrada, diaSaida, mesSa, anoSaida);
+
             if (carroComboBox.getSelectedItem().equals("Sim")){
                 if(textCor.getText().isEmpty() || textModelo.getText().isEmpty() || textPlaca.getText().isEmpty()){
                     JOptionPane.showMessageDialog(null, "Os campos que fazem referencia ao estacionamento \nprecisam estar todos preenchidos!!.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
@@ -493,10 +494,8 @@ public class Tela2 extends JFrame {
 
                     inserirBD.insertCarro(cpf, cor, modelo, placa);
                 }
-
             }
 
-            inserirBD.insertReserva(cpf, numero, pessoas, observacao, diaEntrada, mes, anoEntrada, diaSaida, mesSa, anoSaida);
         }
 
     }
