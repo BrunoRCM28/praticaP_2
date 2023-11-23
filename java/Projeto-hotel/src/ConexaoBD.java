@@ -29,33 +29,6 @@ public class ConexaoBD{
         this.conexao = conexao;
     }
 
-    public void select() {
-        String select = "select * from hotel.TipoQuarto";
-        try {
-            Statement statement = conexao.createStatement();
-            resultSet = statement.executeQuery(select);
-
-            StringBuilder resultados = new StringBuilder();
-            ResultSetMetaData metaData = resultSet.getMetaData();
-            int colunas = metaData.getColumnCount();
-
-            while (resultSet.next()) {
-                for (int i = 1; i <= colunas; i++) {
-                    resultados.append(metaData.getColumnName(i))
-                            .append(": ")
-                            .append(resultSet.getString(i))
-                            .append("\n");
-                }
-                resultados.append("\n");
-            }
-            JOptionPane.showMessageDialog(null, resultados.toString(), "Consulta bem-sucedida", JOptionPane.INFORMATION_MESSAGE);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao executar a consulta.", "Erro na consulta", JOptionPane.INFORMATION_MESSAGE);
-        }
-    }
-
     public void insertHospede(String nome, String sobrenome, long cpf , long telefone, String email, long rg, char sexo) {
         String insert = "insert into hotel.Hospedes(prenome , sobrenome, cpf, telefone, e_mail, rg, sexo)" +
                         "values('"+nome+"', '"+sobrenome+"', "+cpf+", "+telefone+", '"+email+"', "+rg+", '"+sexo+"')";
@@ -116,3 +89,33 @@ public class ConexaoBD{
 
 }
 
+
+
+/*
+   public void select() {
+        String select = "select * from hotel.TipoQuarto";
+        try {
+            Statement statement = conexao.createStatement();
+            resultSet = statement.executeQuery(select);
+
+            StringBuilder resultados = new StringBuilder();
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int colunas = metaData.getColumnCount();
+
+            while (resultSet.next()) {
+                for (int i = 1; i <= colunas; i++) {
+                    resultados.append(metaData.getColumnName(i))
+                            .append(": ")
+                            .append(resultSet.getString(i))
+                            .append("\n");
+                }
+                resultados.append("\n");
+            }
+            JOptionPane.showMessageDialog(null, resultados.toString(), "Consulta bem-sucedida", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao executar a consulta.", "Erro na consulta", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+*/
