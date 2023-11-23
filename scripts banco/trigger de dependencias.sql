@@ -27,3 +27,19 @@ begin
 	delete from hotel.TipoQuarto where id_Tipo = @id
 end
 
+
+
+create trigger verificahospedagem
+on hotel.Estacionamento
+for insert,update 
+as
+Begin
+	set nocount on;
+	declare @cpf int, @cpf2 int
+	select @cpf = cpf from inserted
+	select @cpf2 = cpf from hotel.Reserva where @cpf = cpf
+	if @cpf2 = null
+	begin
+		delete from hotel.Estacionamento where cpf = @cpf
+	end
+End
