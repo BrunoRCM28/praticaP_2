@@ -6,7 +6,7 @@
     <body>
         <article>
             <br>
-            <h1>Listagem das Especialidades Médicas</h1>
+            <h1>Listagem dos tipos de quartos</h1>
             <form method="post">
                 <table>
                     <tr>
@@ -20,7 +20,7 @@
                                 <td><h2><%= tipo.id_Tipo %></h2></td>
                                 <td><h2><%= tipo.especificacao %></h2></td>
                                 <td><a href="/editaespecialidade/<%= tipo.id_Tipo %>" id="c">Editar</a></td>
-                                <td><a href="/exclusaoespecialidade/<%= tipo.id_Tipo %>" id="d">Excluir</a></td>
+                                <td><a href="/exclusaotipo/<%= tipo.id_Tipo %>" id="d">Excluir</a></td>
                               </tr>
                             <% }) %>   
                           </tbody>

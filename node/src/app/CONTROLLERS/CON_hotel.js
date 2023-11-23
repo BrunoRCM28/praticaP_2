@@ -64,6 +64,72 @@ class CON_hotel {
               .catch(erro => console.log(erro));
         }
     }
+
+    //deletes
+
+    deletaesta() {
+        return function(req,res) {
+            const hDAO = new hotelDAO(bd);
+            let id = req.params.id_Vaga
+            hDAO.excluicarro(id) 
+              .then((resultados) => {
+                 console.log(resultados);
+              })
+              .catch(erro => console.log(erro));
+        }
+    }
+
+    deletahospede() {
+        return function(req,res) {
+            const hDAO = new hotelDAO(bd);
+            let id = req.params.codigoCliente
+            hDAO.excluihospede(id) 
+              .then((resultados) => {
+                 console.log(resultados);
+
+              })
+              .catch(erro => console.log(erro));
+        }
+    }
+
+    deletaquarto() {
+        return function(req,res) {
+            const hDAO = new hotelDAO(bd);
+            let id = req.params.numeroQuarto
+            hDAO.excluiquarto(id) 
+              .then((resultados) => {
+                 console.log(resultados);
+
+              })
+              .catch(erro => console.log(erro));
+        }
+    }
+
+    deletareserva() {
+        return function(req,res) {
+            const hDAO = new hotelDAO(bd);
+            let id = req.params.id_Reserva
+            hDAO.excluireserva(id) 
+              .then((resultados) => {
+                 console.log(resultados);
+
+              })
+              .catch(erro => console.log(erro));
+        }
+    }
+
+    deletatipo() {
+        return function(req,res) {
+            const hDAO = new hotelDAO(bd);
+            let id = req.params.id_Tipo
+            hDAO.excluitipo(id) 
+              .then((resultados) => {
+                 console.log(resultados);
+
+              })
+              .catch(erro => console.log(erro));
+        }
+    }
 }
 
 module.exports = CON_hotel

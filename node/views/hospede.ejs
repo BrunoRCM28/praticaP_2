@@ -6,7 +6,7 @@
     <body>
         <article>
             <br>
-            <h1>Listagem das Especialidades Médicas</h1>
+            <h1>Listagem dos hospedes</h1>
             <form method="post">
                 <table>
                     <tr>
@@ -36,7 +36,7 @@
                                 <td><h2><%= hospede.inativo %></h2></td>
 
                                 <td><a href="/editaespecialidade/<%= hospede.codigoCliente %>" id="c">Editar</a></td>
-                                <td><a href="/exclusaoespecialidade/<%= hospede.codigoCliente %>" id="d">Excluir</a></td>
+                                <td><a href="/exclusaohospede/<%= hospede.codigoCliente %>" id="d">Excluir</a></td>
                               </tr>
                             <% }) %>   
                           </tbody>
