@@ -453,7 +453,7 @@ public class Tela2 extends JFrame {
 
 
     public void inserirReserva(ActionEvent actionEvent){
-        if (textCpfClientes.getText().isEmpty() || textPessoas.getText().isEmpty() || textNumero.getText().isEmpty() || textCor.getText().isEmpty() || textModelo.getText().isEmpty() || textPlaca.getText().isEmpty() || textObservacoes.getText().isEmpty()) {
+        if (textCpfClientes.getText().isEmpty() || textPessoas.getText().isEmpty() || textNumero.getText().isEmpty() || textObservacoes.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Todos os campos precisam estar preenchidos para fazer a reserva.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
             return;
         }else{
@@ -484,11 +484,16 @@ public class Tela2 extends JFrame {
             int anoSaida = (int)anoCheckout.getSelectedItem();
 
             if (carroComboBox.getSelectedItem().equals("Sim")){
-                String cor = textCor.getText();
-                String modelo = textModelo.getText();
-                String placa = textPlaca.getText();
+                if(textCor.getText().isEmpty() || textModelo.getText().isEmpty() || textPlaca.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Os campos que fazem referencia ao estacionamento \nprecisam estar todos preenchidos!!.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
+                }else{
+                    String cor = textCor.getText();
+                    String modelo = textModelo.getText();
+                    String placa = textPlaca.getText();
 
-                inserirBD.insertCarro(cpf, cor, modelo, placa);
+                    inserirBD.insertCarro(cpf, cor, modelo, placa);
+                }
+
             }
 
             inserirBD.insertReserva(cpf, numero, pessoas, observacao, diaEntrada, mes, anoEntrada, diaSaida, mesSa, anoSaida);
