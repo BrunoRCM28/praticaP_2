@@ -86,6 +86,78 @@ class DAO_hotel {
         });
     }
 
+    //delete
+
+    excluicarro(idcarro) {
+        return new Promise((resolve,req) => {
+            var sql = "Delete from hotel.estacionamento where id_Vaga = (" + idcarro + ")";
+            console.log(sql)
+            this._bd.query(sql,function(erro,recordset) {
+                if(erro) {
+                    console.log(erro);
+                    return("Listagem de tipos falhou")
+                }
+                resolve(recordset);
+            });
+        });
+    }
+
+    excluihospede(idhospede) {
+        return new Promise((resolve,req) => {
+            var sql = "Delete from hotel.Hospedes where codigoCliente = (" + idhospede + ")";
+            console.log(sql)
+            this._bd.query(sql,function(erro,recordset) {
+                if(erro) {
+                    console.log(erro);
+                    return("Listagem de tipos falhou")
+                }
+                resolve(recordset);
+            });
+        });
+    }
+
+    excluiquarto(idquarto) {
+        return new Promise((resolve,req) => {
+            var sql = "Delete from hotel.Quarto where numeroQuarto = (" + idquarto + ")";
+            console.log(sql)
+            this._bd.query(sql,function(erro,recordset) {
+                if(erro) {
+                    console.log(erro);
+                    return("Listagem de tipos falhou")
+                }
+                resolve(recordset);
+            });
+        });
+    }
+
+    excluireserva(idreserva) {
+        return new Promise((resolve,req) => {
+            var sql = "Delete from hotel.reserva where id_Reserva = (" + idreserva + ")";
+            console.log(sql)
+            this._bd.query(sql,function(erro,recordset) {
+                if(erro) {
+                    console.log(erro);
+                    return("Listagem de tipos falhou")
+                }
+                resolve(recordset);
+            });
+        });
+    }
+
+    excluitipo(idtipo) {
+        return new Promise((resolve,req) => {
+            var sql = "Delete from hotel.TipoQuarto where id_Tipo = (" + idtipo + ")";
+            console.log(sql)
+            this._bd.query(sql,function(erro,recordset) {
+                if(erro) {
+                    console.log(erro);
+                    return("Listagem de tipos falhou")
+                }
+                resolve(recordset);
+            });
+        });
+    }
+
 }
 
 module.exports = DAO_hotel
