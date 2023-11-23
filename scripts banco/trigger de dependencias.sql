@@ -11,6 +11,10 @@ begin
 	delete from hotel.Hospedes where cpf = @cpf
 end
 
+
+
+
+
 create or alter trigger hotel.removedependencias2
 on hotel.TipoQuarto
 instead of delete
