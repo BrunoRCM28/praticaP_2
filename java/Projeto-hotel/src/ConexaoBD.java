@@ -78,7 +78,7 @@ public class ConexaoBD{
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Reserva da vaga bem-sucedida", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "Ocorreu um erro na Reserva da vaga.", "Erro no cadastro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro na Reserva da vaga. [Erro] "+rowsAffected+"", "Erro no cadastro", JOptionPane.ERROR_MESSAGE);
             }
 
         } catch (Exception e) {
