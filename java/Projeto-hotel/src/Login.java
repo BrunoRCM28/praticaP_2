@@ -69,9 +69,10 @@ public class Login extends JFrame{
     }
 
     public void verificacao(ActionEvent actionEvent) {
-        //Connection conexao = ConexaoBD.conectar();
+        String usuario = "BD23632";
+        String senha = "BD23632";
 
-        if(textUsuario.getText().equals("grande") && textSenha.getText().equals("grande")){
+        if(textUsuario.getText().equals(usuario) && textSenha.getText().equals(senha)){
             Tela2 janela = new Tela2();
             dispose();
         }else{
