@@ -78,7 +78,7 @@ public class ConexaoBD{
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(null, "Reserva da vaga bem-sucedida", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "Ocorreu um erro na Reserva da vaga.", "Erro no cadastro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro na Reserva da vaga. [Erro] "+rowsAffected+"", "Erro no cadastro", JOptionPane.ERROR_MESSAGE);
             }
 
         } catch (Exception e) {
@@ -87,6 +87,27 @@ public class ConexaoBD{
         }
     }
 
+    public boolean veirificar(Long cpf){
+        String select = "select Reserva.id_Reserva, Hospedes.cpf " +
+                        "from hotel.Reserva, " +
+                        "hotel.Hospedes " +
+                        "where Reserva.cpf = Hospedes.cpf and " +
+                        "Hospedes.cpf = "+cpf+"";
+        try {
+            Statement statement = conexao.createStatement();
+            resultSet = statement.executeQuery(select);
+
+            if(resultSet.next()){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao executar a consulta.", "Erro na consulta", JOptionPane.INFORMATION_MESSAGE);
+            return false;
+        }
+    }
 }
 
 
