@@ -1,7 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="reserva.css">
-        <title>Listagem de Especialidade Médica</title>
+        <title>Listagem de reservas</title>
     </head>
     <body>
         <article>
@@ -27,9 +27,9 @@
                                 <td><h2><%= reserva.numeroQuarto %></h2></td>
                                 <td><h2><%= reserva.quantidadeDePessoas %></h2></td>
                                 <td><h2><%= reserva.observacao %></h2></td>
-                                <td><h2><%= reserva.dia_checkin %></h2></td>
-                                <td><h2><%= reserva.dia_checkout %></h2></td>
-                                <td><a href="/editaespecialidade/<%= reserva.id_Reserva %>" id="c">Editar</a></td>
+                                <td><h2><%= new Date(reserva.dia_checkin).toLocaleDateString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit' }) %></h2></td>
+                                <td><h2><%= new Date(reserva.dia_checkout).toLocaleDateString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit' }) %></h2></td>
+                                <td><a href="/editareserva/<%= reserva.id_Reserva %>" id="c">Editar</a></td>
                                 <td><a href="/exclusaoreserva/<%= reserva.id_Reserva %>" id="d">Excluir</a></td>
                               </tr>
                             <% }) %>   
@@ -38,8 +38,7 @@
 
                 </table>
             </form>
-            <a href="/cadastraespecialidade"><button id="b">Registrar Especialidade</button></a>
-            <a href="/Inicio"><button id="b">Voltar para o menu</button></a>
+            <a href="/"><button id="b">Voltar para o menu</button></a>
         </article>
     </body>
 </html>

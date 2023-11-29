@@ -6,6 +6,7 @@
     <body>
         <article>
             <br>
+            <a href="/"><button id="b">Voltar para o menu</button></a>
             <h1>Listagem dos quartos</h1>
             <form method="post">
                 <table>
@@ -21,8 +22,8 @@
                                 <td><h2><%= quarto.id_Tipo %></h2></td>
                                 <td><h2><%= quarto.andar %></h2></td>
                                 <td><h2><%= quarto.numeroQuarto %></h2></td>
-                                <td><a href="/editaespecialidade/<%= quarto.id_Tipo %>" id="c">Editar</a></td>
-                                <td><a href="/exclusaoquarto/<%= quarto.id_Tipo %>" id="d">Excluir</a></td>
+                                <td><a href="/editaquarto/<%= quarto.numeroQuarto %>" id="c">Editar</a></td>
+                                <td><a href="/exclusaoquarto/<%= quarto.NumeroQuarto %>" id="d">Excluir</a></td>
                               </tr>
                             <% }) %>   
                           </tbody>
@@ -30,8 +31,7 @@
 
                 </table>
             </form>
-            <a href="/cadastraespecialidade"><button id="b">Registrar Especialidade</button></a>
-            <a href="/Inicio"><button id="b">Voltar para o menu</button></a>
+
         </article>
     </body>
 </html>

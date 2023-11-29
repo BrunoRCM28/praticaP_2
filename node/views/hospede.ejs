@@ -1,18 +1,19 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="hospede.css">
-        <title>Listagem de Especialidade Médica</title>
+        <title>Listagem de hospedes</title>
     </head>
     <body>
         <article>
             <br>
+
+            <a href="/"><button id="b">Voltar para o menu</button></a>
             <h1>Listagem dos hospedes</h1>
             <form method="post">
                 <table>
                     <tr>
-                        <td><h2>Codigo cliente</h2></td>
+                        <td><h2>Codigo <br>cliente</h2></td>
                         <td><h2>nome</h2></td>
-                        <td><h2>sobrenome</h2></td>
                         <td><h2>cpf</h2></td>
                         <td><h2>telefone</h2></td>
                         <td><h2>email</h2></td>
@@ -26,16 +27,15 @@
                             <% hospede.forEach(hospede => { %>
                               <tr>
                                 <td><h2><%= hospede.codigoCliente %></h2></td>
-                                <td><h2><%= hospede.prenome %></h2></td>
-                                <td><h2><%= hospede.sobrenome %></h2></td>
+                                <td><h2><%= hospede.prenome %>  <%= hospede.sobrenome %></h2></td>
                                 <td><h2><%= hospede.cpf %></h2></td>
                                 <td><h2><%= hospede.telefone %></h2></td>
                                 <td><h2><%= hospede.e_mail %></h2></td>
                                 <td><h2><%= hospede.rg %></h2></td>
-                                <td><h2><%= hospede.sexo %></h2></td>
+                                <td><h2><%= hospede.sexo%></h2></td>
                                 <td><h2><%= hospede.inativo %></h2></td>
 
-                                <td><a href="/editaespecialidade/<%= hospede.codigoCliente %>" id="c">Editar</a></td>
+                                <td><a href="/editahospedes/<%= hospede.codigoCliente %>" id="c">Editar</a></td>
                                 <td><a href="/exclusaohospede/<%= hospede.codigoCliente %>" id="d">Excluir</a></td>
                               </tr>
                             <% }) %>   
@@ -44,8 +44,6 @@
 
                 </table>
             </form>
-            <a href="/cadastraespecialidade"><button id="b">Registrar Especialidade</button></a>
-            <a href="/Inicio"><button id="b">Voltar para o menu</button></a>
         </article>
     </body>
 </html>
