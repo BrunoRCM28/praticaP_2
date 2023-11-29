@@ -42,6 +42,26 @@ void loop(){
         lcd.print("remover");
         digitalWrite(vermelho, HIGH);
       	break;
+      case '3':
+      	digitalWrite(vermelho, LOW);
+        digitalWrite(backLight, HIGH);
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("Editado com");
+        lcd.setCursor(0, 1);
+        lcd.print("Sucesso");
+        digitalWrite(verde, HIGH);
+      	break;
+      case '4':
+      	digitalWrite(verde, LOW);
+        digitalWrite(backLight, HIGH);
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("[ERRO]Falha ao");
+        lcd.setCursor(0, 1);
+        lcd.print("Editar");
+        digitalWrite(vermelho, HIGH);
+      	break;
       default:
       	digitalWrite(vermelho, LOW);
       	digitalWrite(verde, LOW);
