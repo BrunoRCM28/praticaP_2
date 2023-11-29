@@ -1,0 +1,69 @@
+body
+{
+    background-color: rgb(58, 56, 56);
+
+}
+
+header
+{
+    color: white;
+    text-align: center;
+}
+
+h1
+{
+    font-size: 70px;
+}
+article
+{
+   padding: 20px;
+}
+button
+{
+    width: 350px;
+    height: 300px;
+    position: relative;
+    left: 210px;
+    padding: 20px;
+    color: black;
+    font-size: 30px;
+}
+button#a{
+    background-color: lightcyan;
+}
+button#a:hover{
+    background-color: gray;
+}
+button#b{
+    position: relative;
+    left: 230px;
+    background-color: lightgreen;
+}
+button#b:hover{
+    background-color: gray;
+    
+}
+button#c{
+    position: relative;
+    left: 250px;
+    background-color: lightsteelblue;
+}
+button#c:hover{
+    background-color: gray;
+}
+button#d{
+    position: relative;
+    left: 400px;
+    background-color: lightyellow;
+}
+button#d:hover{
+    background-color: gray;
+}
+button#e{
+    position: relative;
+    left: 420px;
+    background-color: rgb(219, 188, 241);
+}
+button#e:hover{
+    background-color: gray;
+}

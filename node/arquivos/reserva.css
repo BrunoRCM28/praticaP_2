@@ -1,6 +1,7 @@
 body
 {
-    background-color: gray;
+    background-color: rgb(58, 56, 56);
+
 }
 
 button#sair{
@@ -13,19 +14,24 @@ button#sair{
 article
 {
     background-color: rgb(255, 255, 255);
-    width:  97%;
+    width:  90%;
     margin: 0 auto;
     text-align: center;
     position: relative;
-    top: 20%;
     padding: 20px;
+    top: 60px;
 }
 
 tr td
 {
     padding: 10px;
     position: relative;
-    left: 50px;
+    left: 5px;
+    
+
+}
+tbody{
+    text-align: center;
 }
 
 tr td button
@@ -34,20 +40,9 @@ tr td button
     width: 100px;
     height: 40px;
     position: relative;
-    top: -10px;
+    top: -15px;
 }
 
-tr td button#edi
-{
-    background: rgba(0, 106, 255, 0.484);
-    color: white;
-}
-
-tr td button#ex
-{
-    background: rgb(254, 0, 0);
-    color: white;
-}
 
 h3{
     font-size: 15px;
@@ -61,21 +56,21 @@ a{
 h1
 {
     font-size: 40px;
-    color:  rgb(87, 219, 75)
+    color:  rgb(58, 56, 56);
 }
 h2
 {
-    color: rgba(87, 219, 75);
+    color: rgb(75, 69, 69);
     font-size: 25px;
 }
 
 button#b
 {
     border: none;
-    width: 100px;
-    height: 50px;
+    width: 120px;
+    height: 40px;
     position: relative;
-    left: 250px;
+    left: 620px;
     background-color: gray;
     color: white;
 }
@@ -87,6 +82,7 @@ a#c
     color: white;
     border: 5px blue solid;
     position: relative;
+    top: -10px;
 }
 
 a#d
@@ -95,4 +91,6 @@ a#d
     text-decoration: none;
     color: white;
     border: 5px red solid;
+    position: relative;
+    top: -10px;
 }

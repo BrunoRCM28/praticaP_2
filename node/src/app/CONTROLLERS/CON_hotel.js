@@ -1,3 +1,4 @@
+const e = require("express");
 const bd = require("../../config/database")
 const hotelDAO = require("../BD/DAO_hotel")
 
@@ -130,6 +131,89 @@ class CON_hotel {
               .catch(erro => console.log(erro));
         }
     }
+
+    //edições
+
+    editacarro() {
+        return function(req,res) {
+            var cor = req.body.cor
+            var modelo = req.body.modelo
+            var placa = req.body.placa
+            var id = req.params.id_Vaga
+            const hDAO = new hotelDAO(bd);
+            hDAO.editacarro(cor,modelo,placa,id)
+                .then((resultados) => {
+                    res.redirect('/listagemestacionamento')
+                })
+                .catch(erro => console.log(erro))
+        }
+    }
+
+    editahospede() {
+        return function(req,res) {
+            var prenome = req.body.nome
+            var sobrenome = req.body.sobrenome
+            var cpf = req.body.cpf
+            var telefone = req.body.telefone
+            var email = req.body.email
+            var rg = req.body.rg
+            var sexo = req.body.sexo
+            var inativo = req.body.inativo
+            var id = req.params.codigoCliente
+            const hDAO = new hotelDAO(bd);
+            hDAO.editahospede(nome,sobrenome,cpf,telefone,email,rg,sexo,inativo,id)
+                .then((resultados) => {
+                    res.redirect('/listagemhospedes')
+                })
+                .catch(erro => console.log(erro))
+        }
+    }
+
+    editareserva() {
+        return function(req,res) {
+            var nquarto = req.body.quarto
+            var qpessoas = req.body.pessoas
+            var obs = req.body.obs
+            var diain = req.body.in
+            var diaout = req.body.out
+            var id = req.params.id_Reserva
+            const hDAO = new hotelDAO(bd);
+            hDAO.editacarro(nquarto,qpessoas,obs,diain,diaout,id)
+                .then((resultados) => {
+                    res.redirect('/listagemreserva')
+                })
+                .catch(erro => console.log(erro))
+        }
+    }
+
+    editatipo() {
+        return function(req,res) {
+            var esp = req.body.esp
+            var id = req.params.id_Vaga
+            const hDAO = new hotelDAO(bd);
+            hDAO.editatipo(esp,id)
+                .then((resultados) => {
+                    res.redirect('/listagemTipoQuarto')
+                })
+                .catch(erro => console.log(erro))
+        }
+    }
+
+    editaquarto() {
+        return function(req,res) {
+            var an = req.body.an
+            var tipo = req.body.tipo
+            var id = req.params.numeroQuarto
+            const hDAO = new hotelDAO(bd);
+            hDAO.editaquarto(an,tipo,id)
+                .then((resultados) => {
+                    res.redirect('/listagemquarto')
+                })
+                .catch(erro => console.log(erro))
+        }
+    }
+
+
 }
 
 module.exports = CON_hotel

@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <!--usei style por problemas com rotas-->
+        <style>
+            body
+             {
+                 background-color: rgb(58, 56, 56);
+ 
+             }
+ 
+             button#sair{
+                 width: 100px;
+                 height: 30px;
+                 position: relative;
+                 left: 1450px;
+             }
+ 
+             article
+             {
+                 background-color: rgb(255, 255, 255);
+                 width:  50%;
+                 margin: 0 auto;
+                 text-align: center;
+                 position: relative;
+                 padding: 20px;
+                 top: 60px;
+             }
+ 
+             tr td
+             {
+                 padding: 10px;
+                 position: relative;
+                 left: 40px;
+                 
+ 
+             }
+             tbody{
+                 text-align: center;
+             }
+ 
+             tr td button
+             {
+                 border: none;
+                 width: 100px;
+                 height: 40px;
+                 position: relative;
+                 top: -15px;
+             }
+ 
+ 
+             h3{
+                 font-size: 15px;
+                 position: relative;
+                 left: 100px;
+ 
+             }
+             a{
+                 text-decoration: none;
+             }
+             h1
+             {
+                 font-size: 40px;
+                 color:  rgb(58, 56, 56);
+             }
+             h2
+             {
+                 color: rgb(75, 69, 69);
+                 font-size: 25px;
+             }
+ 
+             button#b
+             {
+                 border: none;
+                 width: 120px;
+                 height: 40px;
+                 position: relative;
+                 left: 30%;
+                 background-color: gray;
+                 color: white;
+             }
+ 
+             a#c
+             {
+                 background-color: blue;
+                 text-decoration: none;
+                 color: white;
+                 border: 5px blue solid;
+                 position: relative;
+                 top: -10px;
+             }
+ 
+             a#d
+             {
+                 background-color: red;
+                 text-decoration: none;
+                 color: white;
+                 border: 5px red solid;
+                 position: relative;
+                 top: -10px;
+             }
+         </style>
+        <title>Listagem de Especialidade Médica</title>
+    </head>
+    <body>
+        <article>
+            <br>
+            <h1>Listagem das vagas</h1>
+            <form  action="/editatipo/id_tipo" method="post" id="body" name="body" enctype='application/x-www-form-urlencoded'>
+                <table>
+                    <tr>
+                        <td><h2>Especificação:</h2></td>
+                        <td><input type="text" id="esp" name="esp"  required></td>
+                    </tr>
+                    <tr><td><br></td></tr>
+                    <tr>
+                        <td><button>Alterar</td>
+                    </tr>
+                    <tr><td><br><br></td></tr>
+                </table>
+            </form>
+            <a href="/listagemtipoquarto"><button id="b">Listagem dos tipos de quartos</button></a>
+            <a href="/"><button id="b">Voltar para o menu</button></a>
+        </article>
+    </body>
+</html>

@@ -1,11 +1,12 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="estacionamento.css">
-        <title>Listagem de Especialidade Médica</title>
+        <title>Listagem do Estacionamento</title>
     </head>
     <body>
         <article>
             <br>
+            <a href="/"><button id="b">Voltar para o menu</button></a>
             <h1>Listagem das vagas</h1>
             <form method="post">
                 <table>
@@ -25,7 +26,7 @@
                                 <td><h2><%= esta.cor %></h2></td>
                                 <td><h2><%= esta.modelo %></h2></td>
                                 <td><h2><%= esta.placa %></h2></td>
-                                <td><a href="/editaespecialidade/<%= esta.id_Vaga %>" id="c">Editar</a></td>
+                                <td><a href="/editaestacionamento/<%= esta.id_Vaga %>" id="c">Editar</a></td>
                                 <td><a href="/exclusaoesta/<%= esta.id_Vaga %>" id="d">Excluir</a></td>
                               </tr>
                             <% }) %>   
@@ -34,8 +35,7 @@
 
                 </table>
             </form>
-            <a href="/cadastraespecialidade"><button id="b">Registrar Especialidade</button></a>
-            <a href="/Inicio"><button id="b">Voltar para o menu</button></a>
+            
         </article>
     </body>
 </html>

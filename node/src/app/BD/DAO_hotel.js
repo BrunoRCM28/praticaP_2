@@ -41,7 +41,7 @@ class DAO_hotel {
     exibehospede() {
         return new Promise((resolve, reject) => 
         {
-            var sql = "SELECT codigoCliente, prenome, sobrenome, telefone ,e_mail, rg, sexo, inativo FROM hotel.Hospedes ORDER by codigoCliente"
+            var sql = "SELECT codigoCliente, prenome, sobrenome,cpf, telefone ,e_mail, rg, sexo, inativo FROM hotel.Hospedes ORDER by codigoCliente"
             this._bd.query(sql,function(erro,recordset) 
             {
             if (erro) 
@@ -95,7 +95,7 @@ class DAO_hotel {
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
                     console.log(erro);
-                    return("Listagem de tipos falhou")
+                    return("exclusão do Estacionamento falhou")
                 }
                 resolve(recordset);
             });
@@ -109,7 +109,7 @@ class DAO_hotel {
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
                     console.log(erro);
-                    return("Listagem de tipos falhou")
+                    return("exclusão de hospedes falhou")
                 }
                 resolve(recordset);
             });
@@ -123,7 +123,7 @@ class DAO_hotel {
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
                     console.log(erro);
-                    return("Listagem de tipos falhou")
+                    return("exclusão de quartos falhou")
                 }
                 resolve(recordset);
             });
@@ -137,7 +137,7 @@ class DAO_hotel {
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
                     console.log(erro);
-                    return("Listagem de tipos falhou")
+                    return("exclusão de reservas falhou")
                 }
                 resolve(recordset);
             });
@@ -151,7 +151,79 @@ class DAO_hotel {
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
                     console.log(erro);
-                    return("Listagem de tipos falhou")
+                    return("exclusão dos tipos falhou")
+                }
+                resolve(recordset);
+            });
+        });
+    }
+
+    //editar
+
+    editacarro(cor,modelo,placa,idvaga) {
+        return new Promise((resolve,req) => {
+            var sql2 = "Update hotel.Estacionamento set cor = ('" + cor + "'),modelo = ('" + modelo + "'),placa = ('" + placa + "') where id_Vaga = (" + idvaga + ")";
+            console.log(sql2)
+            this._bd.query(sql2,function(erro,recordset) {
+                if(erro) {
+                    console.log(erro);
+                    return resolve("Edição do carro falhou")
+                }
+                resolve(recordset);
+            });
+        });
+    }
+
+    editahospede(prenome,sobrenome,cpf,telefone,email,rg,sexo,inativo,codcliente) {
+        return new Promise((resolve,req) => {
+            var sql2 = "Update hotel.Hospedes set prenome = ('" + prenome + "'),sobrenome = ('" + sobrenome + "'),cpf = ('" + cpf + "'),telefone = ('" + telefone + "'),e_mail = ('" + email + "'),rg = ('" + rg + "'),sexo = ('" + sexo + "'),inativo = ('" + inativo + "'), where codigoCliente = (" + codcliente + ")";
+            console.log(sql2)
+            this._bd.query(sql2,function(erro,recordset) {
+                if(erro) {
+                    console.log(erro);
+                    return resolve("Edição de hospedes falhou")
+                }
+                resolve(recordset);
+            });
+        });
+    }
+
+    editareserva(numeroquarto,quantidadedepessoas,observacao,diacheckin,diacheckout,idreserva) {
+        return new Promise((resolve,req) => {
+            var sql2 = "Update hotel.Reserva set  numeroQuarto= ('" + numeroquarto + "'),quantidadeDePessoas = ('" + quantidadedepessoas + "'),observacao = ('" + observacao + "'),dia_checkin = Convert(date," + diacheckin + ",103),dia_checkout = Convert(date," + diacheckout + ",103) where id_Reserva = (" + idreserva + ")";
+            console.log(sql2)
+            this._bd.query(sql2,function(erro,recordset) {
+                if(erro) {
+                    console.log(erro);
+                    return resolve("Edição de reservas falhou")
+                }
+                resolve(recordset);
+            });
+        });
+    }
+
+    editatipo(esp,idreserva) {
+        return new Promise((resolve,req) => {
+            var sql2 = "Update hotel.TipoQuarto set  especificacao= ('" + esp + "') where id_Tipo = (" + idreserva + ")";
+            console.log(sql2)
+            this._bd.query(sql2,function(erro,recordset) {
+                if(erro) {
+                    console.log(erro);
+                    return resolve("Edição do tipos falhou")
+                }
+                resolve(recordset);
+            });
+        });
+    }
+
+    editaquarto(an,tipo,id) {
+        return new Promise((resolve,req) => {
+            var sql2 = "Update hotel.Quarto set  andar =  ('" + an + "'), id_tipo = ('"+tipo +"') where numeroQuarto = (" + id + ")";
+            console.log(sql2)
+            this._bd.query(sql2,function(erro,recordset) {
+                if(erro) {
+                    console.log(erro);
+                    return resolve("Edição do Quartos falhou")
                 }
                 resolve(recordset);
             });
