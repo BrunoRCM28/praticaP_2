@@ -1,8 +1,7 @@
-create or alter procedure empresa.sp
+create or alter procedure hotel.sp1
  @nump int
  as begin
 	begin
-	delete from empresa.TRABALHA_EM where NumProjeto = @nump
-	delete from empresa.PROJETO where NumProjeto = @nump
+	delete from hotel.Reserva where id_Reserva = @nump
 	end
  end
