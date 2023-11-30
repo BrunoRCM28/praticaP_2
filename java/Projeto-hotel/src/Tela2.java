@@ -40,6 +40,7 @@ public class Tela2 extends JFrame {
     JComboBox<String> mesCheckout;
     JComboBox<Integer> anoCheckout;
     Map<String, Integer> mesesMap;
+
     public Tela2() {
         janelaCadastro();
         janelaReserva();
@@ -52,6 +53,7 @@ public class Tela2 extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
+
     private Map<String, Integer> criarMapaMeses() {
         Map<String, Integer> map = new HashMap<>();
         map.put("Janeiro", 1);
@@ -68,17 +70,18 @@ public class Tela2 extends JFrame {
         map.put("Dezembro", 12);
         return map;
     }
+
     public void janelaCadastro() {
         cadastro.setLayout(null);
         JLabel titulo = new JLabel("CADASTRO DE HOSPEDES");
-        titulo.setBounds(10,5,500,50);
+        titulo.setBounds(10, 5, 500, 50);
         titulo.setFont(new Font("Arial", Font.PLAIN, 25));
         Border border = BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK);
         titulo.setBorder(border);
         cadastro.add(titulo);
         // Caixa de texto - Nome
         JLabel nome = new JLabel("NOME: ");
-        nome.setBounds(12, 90,200,50);
+        nome.setBounds(12, 90, 200, 50);
         nome.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(nome);
         textNome = new JTextField();
@@ -87,7 +90,7 @@ public class Tela2 extends JFrame {
         cadastro.add(textNome);
         // Caixa de texto - Sobrenome
         JLabel sobrenome = new JLabel("SOBRENOME: ");
-        sobrenome.setBounds(365, 90,200,50);
+        sobrenome.setBounds(365, 90, 200, 50);
         sobrenome.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(sobrenome);
         textSobrenome = new JTextField();
@@ -96,7 +99,7 @@ public class Tela2 extends JFrame {
         cadastro.add(textSobrenome);
         // Caixa de texto - cpf
         JLabel cpf = new JLabel("CPF: ");
-        cpf.setBounds(12, 160,200,50);
+        cpf.setBounds(12, 160, 200, 50);
         cpf.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(cpf);
         textCPF = new JTextField();
@@ -105,7 +108,7 @@ public class Tela2 extends JFrame {
         cadastro.add(textCPF);
         // Caixa de texto - rg
         JLabel rg = new JLabel("RG: ");
-        rg.setBounds(365, 160,200,50);
+        rg.setBounds(365, 160, 200, 50);
         rg.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(rg);
         textRg = new JTextField();
@@ -114,7 +117,7 @@ public class Tela2 extends JFrame {
         cadastro.add(textRg);
         // Caixa de texto - Email
         JLabel email = new JLabel("E-MAIL: ");
-        email.setBounds(12, 230,200,50);
+        email.setBounds(12, 230, 200, 50);
         email.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(email);
         textEmail = new JTextField();
@@ -123,7 +126,7 @@ public class Tela2 extends JFrame {
         cadastro.add(textEmail);
         // Caixa de texto - telefone
         JLabel telefone = new JLabel("TELEFONE: ");
-        telefone.setBounds(365, 230,200,50);
+        telefone.setBounds(365, 230, 200, 50);
         telefone.setFont(new Font("Arial", Font.BOLD, 15));
         cadastro.add(telefone);
         textTelefone = new JTextField();
@@ -152,6 +155,7 @@ public class Tela2 extends JFrame {
             public void mouseEntered(MouseEvent e) {
                 jButton.setBackground(new Color(131, 134, 131));
             }
+
             public void mouseExited(MouseEvent e) {
                 jButton.setBackground(new Color(93, 96, 93));
             }
@@ -159,17 +163,18 @@ public class Tela2 extends JFrame {
         cadastro.add(jButton);
         jButton.addActionListener(this::inserir);
     }
-    public void janelaReserva(){
+
+    public void janelaReserva() {
         reserva.setLayout(null);
         JLabel titulo = new JLabel("RESERVA");
-        titulo.setBounds(10,5,500,50);
+        titulo.setBounds(10, 5, 500, 50);
         titulo.setFont(new Font("Arial", Font.PLAIN, 25));
         Border border = BorderFactory.createMatteBorder(0, 0, 1, 0, Color.BLACK);
         titulo.setBorder(border);
         reserva.add(titulo);
         // Caixa de texto - cpf
         JLabel cpfClientes = new JLabel("CPF DO CLIENTE: ");
-        cpfClientes.setBounds(12, 90,200,50);
+        cpfClientes.setBounds(12, 90, 200, 50);
         cpfClientes.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(cpfClientes);
         textCpfClientes = new JTextField();
@@ -178,7 +183,7 @@ public class Tela2 extends JFrame {
         reserva.add(textCpfClientes);
         // Caixa de texto - pessoas no quarto
         JLabel pessoas = new JLabel("QUATIDADE DE PESSOAS: ");
-        pessoas.setBounds(405, 90,200,50);
+        pessoas.setBounds(405, 90, 200, 50);
         pessoas.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(pessoas);
         textPessoas = new JTextField();
@@ -187,7 +192,7 @@ public class Tela2 extends JFrame {
         reserva.add(textPessoas);
         // Caixa de texto - Número do quarto
         JLabel numero = new JLabel("N° DO QUARTO: ");
-        numero.setBounds(12, 160,200,50);
+        numero.setBounds(12, 160, 200, 50);
         numero.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(numero);
         textNumero = new JTextField();
@@ -196,7 +201,7 @@ public class Tela2 extends JFrame {
         reserva.add(textNumero);
         // Caixa de texto - cor carro
         JLabel cor = new JLabel("COR DO CARRO: ");
-        cor.setBounds(442, 160,200,50);
+        cor.setBounds(442, 160, 200, 50);
         cor.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(cor);
         textCor = new JTextField();
@@ -208,7 +213,7 @@ public class Tela2 extends JFrame {
         reserva.add(textCor);
         // Caixa de texto - modelo
         JLabel modelo = new JLabel("MODELO DO CARRO: ");
-        modelo.setBounds(365, 230,200,50);
+        modelo.setBounds(365, 230, 200, 50);
         modelo.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(modelo);
         textModelo = new JTextField();
@@ -220,7 +225,7 @@ public class Tela2 extends JFrame {
         reserva.add(textModelo);
         // Caixa de texto - placa
         JLabel placa = new JLabel("PLACA DO CARRO: ");
-        placa.setBounds(12, 230,200,50);
+        placa.setBounds(12, 230, 200, 50);
         placa.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(placa);
         textPlaca = new JTextField();
@@ -243,14 +248,14 @@ public class Tela2 extends JFrame {
         reserva.add(carroComboBox);
         carroComboBox.addActionListener(e -> {
             String selectedValue = (String) carroComboBox.getSelectedItem();
-            if(selectedValue.equals("Sim")){
+            if (selectedValue.equals("Sim")) {
                 textCor.setEnabled(true);
                 textCor.setBackground(Color.WHITE);
                 textModelo.setEnabled(true);
                 textModelo.setBackground(Color.WHITE);
                 textPlaca.setEnabled(true);
                 textPlaca.setBackground(Color.WHITE);
-            }else if (selectedValue.equals("Não")){
+            } else if (selectedValue.equals("Não")) {
                 textCor.setEnabled(false);
                 textCor.setBackground(new Color(204, 204, 204));
                 textCor.setDisabledTextColor(Color.gray);
@@ -264,7 +269,7 @@ public class Tela2 extends JFrame {
         });
         // Caixa de texto - observação
         JLabel observacoes = new JLabel("<html>OBSERVAÇÕES <br>SOBRE O QUARTO: </html>");
-        observacoes.setBounds(12, 300,200,50);
+        observacoes.setBounds(12, 300, 200, 50);
         observacoes.setFont(new Font("Arial", Font.BOLD, 15));
         reserva.add(observacoes);
         textObservacoes = new JTextArea();
@@ -324,6 +329,7 @@ public class Tela2 extends JFrame {
             public void mouseEntered(MouseEvent e) {
                 jButton.setBackground(new Color(131, 134, 131));
             }
+
             public void mouseExited(MouseEvent e) {
                 jButton.setBackground(new Color(93, 96, 93));
             }
@@ -331,20 +337,21 @@ public class Tela2 extends JFrame {
         reserva.add(jButton);
         jButton.addActionListener(this::inserirReserva);
     }
-    public void entrar(ActionEvent actionEvent){
+
+    public void entrar(ActionEvent actionEvent) {
         Connection conexao = ConexaoBD.conectar();
         ConexaoBD selectBD = new ConexaoBD();
         selectBD.setConexao(conexao);
 
-        selectBD.select();
+
 
     }
 
-    public void inserir(ActionEvent actionEvent){
+    public void inserir(ActionEvent actionEvent) {
         if (textNome.getText().isEmpty() || textSobrenome.getText().isEmpty() || textCPF.getText().isEmpty() || textTelefone.getText().isEmpty() || textRg.getText().isEmpty() || textEmail.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Todos os campos precisam estar preenchidos para fazer o cadastro.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
             return;
-        }else{
+        } else {
             Connection conexao = ConexaoBD.conectar();
             ConexaoBD inserirBD = new ConexaoBD();
             inserirBD.setConexao(conexao);
@@ -358,21 +365,22 @@ public class Tela2 extends JFrame {
             long rg = Long.parseLong(rgString);
             String email = textEmail.getText();
             char sexo;
-            if (generoComboBox.getSelectedItem().equals("Masculino")){
+            if (generoComboBox.getSelectedItem().equals("Masculino")) {
                 sexo = 'M';
-            }else if(generoComboBox.getSelectedItem().equals("Feminino")){
+            } else if (generoComboBox.getSelectedItem().equals("Feminino")) {
                 sexo = 'F';
-            }else{
+            } else {
                 sexo = 'O';
             }
             inserirBD.insertHospede(nome, sobrenome, cpf, telefone, email, rg, sexo);
         }
     }
-    public void inserirReserva(ActionEvent actionEvent){
+
+    public void inserirReserva(ActionEvent actionEvent) {
         if (textCpfClientes.getText().isEmpty() || textPessoas.getText().isEmpty() || textNumero.getText().isEmpty() || textObservacoes.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Todos os campos precisam estar preenchidos para fazer a reserva.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
             return;
-        }else{
+        } else {
             Connection conexao = ConexaoBD.conectar();
             ConexaoBD inserirBD = new ConexaoBD();
             inserirBD.setConexao(conexao);
@@ -383,46 +391,40 @@ public class Tela2 extends JFrame {
             String pessoasString = textPessoas.getText().trim();
             int pessoas = Integer.parseInt(pessoasString);
             String observacao = textObservacoes.getText();
-            int diaEntrada = (int)diaCheckin.getSelectedItem();
+            int diaEntrada = (int) diaCheckin.getSelectedItem();
             String mesEntrada = (String) mesCheckin.getSelectedItem();
-            int mes= mesesMap.getOrDefault(mesEntrada, 0);
-            int anoEntrada = (int)anoCheckin.getSelectedItem();
-            int diaSaida = (int)diaCheckout.getSelectedItem();
-            String mesSaida = (String)mesCheckout.getSelectedItem();
+            int mes = mesesMap.getOrDefault(mesEntrada, 0);
+            int anoEntrada = (int) anoCheckin.getSelectedItem();
+            int diaSaida = (int) diaCheckout.getSelectedItem();
+            String mesSaida = (String) mesCheckout.getSelectedItem();
             int mesSa = mesesMap.getOrDefault(mesSaida, 0);
-            int anoSaida = (int)anoCheckout.getSelectedItem();
+            int anoSaida = (int) anoCheckout.getSelectedItem();
 
-            if (carroComboBox.getSelectedItem().equals("Sim")){
-                if(textCor.getText().isEmpty() || textModelo.getText().isEmpty() || textPlaca.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null, "Os campos que fazem referencia ao estacionamento \nprecisam estar todos preenchidos!!.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
-                }else{
-                    String cor = textCor.getText();
-                    String modelo = textModelo.getText();
-                    String placa = textPlaca.getText();
+
             inserirBD.insertReserva(cpf, numero, pessoas, observacao, diaEntrada, mes, anoEntrada, diaSaida, mesSa, anoSaida);
 
-                    inserirBD.insertCarro(cpf, cor, modelo, placa);
-            if(inserirBD.veirificar(cpf)){
-                if (carroComboBox.getSelectedItem().equals("Sim")){
-                    if(textCor.getText().isEmpty() || textModelo.getText().isEmpty() || textPlaca.getText().isEmpty()){
+            if (inserirBD.veirificar(cpf)) {
+                if (carroComboBox.getSelectedItem().equals("Sim")) {
+                    if (textCor.getText().isEmpty() || textModelo.getText().isEmpty() || textPlaca.getText().isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Os campos que fazem referencia ao estacionamento \nprecisam estar todos preenchidos!!.", "Campos Vazios", JOptionPane.WARNING_MESSAGE);
-                    }else{
+                    } else {
                         String cor = textCor.getText();
                         String modelo = textModelo.getText();
                         String placa = textPlaca.getText();
-
                         inserirBD.insertCarro(cpf, cor, modelo, placa);
                     }
                 }
 
             }
-
-            inserirBD.insertReserva(cpf, numero, pessoas, observacao, diaEntrada, mes, anoEntrada, diaSaida, mesSa, anoSaida);
         }
 
     }
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new Tela2();
-        });
-    }
+}
+
+/*
+            public static void main (String[]args){
+                SwingUtilities.invokeLater(() -> {
+                    new Tela2();
+                });
+             }
+*/
