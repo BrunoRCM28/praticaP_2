@@ -1,6 +1,6 @@
 const {serialPort} = require('serialport');
 const arduino = new serialPort({
-    path: 'porta-do-arduino',
+    path: 'COM3',
     baudRate: 9600
 });
 
@@ -8,4 +8,4 @@ function removerSucesso(num){
     arduino.write(''+num+'');
 }
 
-setTimeout(reservaSucesso, 2000);
+setTimeout(removerSucesso, 2000);
