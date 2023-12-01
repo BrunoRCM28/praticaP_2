@@ -18,3 +18,34 @@ as
 		((hotel.Quarto Q join hotel.TipoQuarto T on Q.id_Tipo = T.id_Tipo)Join hotel.Reserva R on Q.numeroQuarto = R.numeroQuarto)Join hotel.Hospedes H on H.cpf = R.cpf 
 
 select * from hotel.ver_especificacoes_reserva
+
+
+create view hotel.exibe_hospede
+as 
+	SELECT codigoCliente, prenome, sobrenome,cpf, telefone ,e_mail, rg, sexo, inativo 
+	FROM hotel.Hospedes 
+
+select * from hotel.exibe_hospede
+
+
+create view hotel.exibe_quartos
+as
+	SELECT andar, numeroQuarto, id_Tipo 
+	FROM hotel.Quarto 
+
+select * from hotel.exibe_quartos
+
+create view hotel.exibe_reserva
+as
+	SELECT id_Reserva, cpf, numeroQuarto, quantidadeDePessoas ,observacao, dia_checkin, dia_checkout 
+	FROM hotel.Reserva 
+
+select * from hotel.exibe_reserva
+
+
+create view hotel.exibe_tipo
+as 
+	SELECT especificacao,id_Tipo  
+	FROM hotel.TipoQuarto 
+
+select * from hotel.exibe_tipo
