@@ -2,9 +2,9 @@ const sql = require('mssql');
 
 const config = {
     server: 'regulus.cotuca.unicamp.br',
-    database: 'BD23537',
-    user: 'BD23537',
-    password: 'BD23537',
+    database: 'BD23632',
+    user: 'BD23632',
+    password: 'BD23632',
     options:{
       encrypt: true,
       trustServerCertificate: true

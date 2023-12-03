@@ -1,5 +1,5 @@
-const sql = require("mssql/promise");
-const bdConfig = require('./bdconfig.js');
+const sql = require('mssql')
+
 
 async function getConexao ()
 {
@@ -8,15 +8,47 @@ async function getConexao ()
 
     try
     {
-        const conexao = await mssql.createConnection (bdConfig);
+        const dados = {
+            server: 'regulus.cotuca.unicamp.br',
+            database: 'BD23632',
+            user: 'BD23632',
+            password: 'BD23632',
+            options:{
+              encrypt: true,
+              trustServerCertificate: true
+            }
+        };
+        
+        
+        const pool = new sql.ConnectionPool(dados)
+        const conexao = await pool.connect()
+        //pool.connect()
         global.conexao = conexao;
         return conexao;
     }
     catch (erro)
     {
+        console.log(erro)
         return null;
     }
 }
 
+async function estrutureSe ()
+{
+    const conexao = await getConexao()
+    if (conexao==undefined) return null;
+    const sql2 = 'create table hotel.testes(nome varchar(20) primary key)';
+    console.log(sql2)
+    try
+    {
+        await conexao.query (sql2);
+        return true;
+    }
+    catch (erro)
+    {
+        return false;
+        console.log(erro)
+    }
+}
 
 module.exports = {getConexao, estrutureSe}

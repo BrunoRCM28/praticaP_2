@@ -1,26 +1,27 @@
 const bd = require ('./bd');
-const { espnovo } = require('./cadastraesp');
 
-async function inclua (cadastraesp)
-{
-    const conexao = await bd.getConexao ();
-    if (conexao==null) return null;
-
-    try
-    {
-        const sql     = 'INSERT INTO hotel.TipoQuarto (especificacao) VALUES (?)';
-        const dados   = [espnovo.nome];
-        await conexao.query (sql, dados);
-        return true;
+async function incluirespecificacao(especificacao){
+    const conexao = await bd.getConexao()
+    if (conexao == null) return null;
+    try{
+        const sql = "Insert into hotel.TipoQuarto(especificacao) VALUES('"+ especificacao +"')"
+        console.log(sql)
     }
-    catch (excecao)
-    {
+    catch(excecao){
+        return false;
+    }
+}
+
+async function selecionarespt(){
+    const conexao = await bd.getConexao()
+    if (conexao == null) return null;
+    try{
+        const sql = "Select * from hotel.TipoQuarto"
+    }
+    catch(excecao){
         return false;
     }
 }
 
 
-module.exports = {inclua}
-
-
-
+module.exports = {incluirespecificacao,selecionarespt}
