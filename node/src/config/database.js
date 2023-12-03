@@ -4,7 +4,11 @@ const config = {
     server: 'regulus.cotuca.unicamp.br',
     database: 'BD23632',
     user: 'BD23632',
+<<<<<<< Updated upstream
     password: 'BD23632',
+=======
+    password: 'BD23632',//BD23537
+>>>>>>> Stashed changes
     options:{
       encrypt: true,
       trustServerCertificate: true
