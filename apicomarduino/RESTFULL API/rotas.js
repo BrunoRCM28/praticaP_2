@@ -21,8 +21,25 @@ async function incluitipo(req,res)
         return res.status(422).json(erro);
     }
 
-    const ret = await codigos.incluirespecificacao(tipoquarto);
-    console.log(ret)
+    const ret = await Livros.inclua(livro);
+
+    if (ret===null)
+    {
+        const  erro = Comunicado.novo('CBD','Sem conexão com o BD','Não foi possível estabelecer conexão com o banco de dados').object;
+        return res.status(500).json(erro);
+    }
+
+    if (ret===false)
+    {
+        const  erro = Comunicado.novo('LJE','TipoQuarto já existe','Já há TipoQuarto cadastrado com o código informado').object;
+        return res.status(409).json(erro);
+    }
+
+  //if (ret===true)
+  //{
+        const  sucesso = Comunicado.novo('IBS','Inclusão bem sucedida','O TipoQuarto foi incluído com sucesso').object;
+        return res.status(201).json(sucesso);
+  //}
 }
 
 async function selecionaespt (req, res)
@@ -34,14 +51,11 @@ async function selecionaespt (req, res)
     }
 
     const ret = await codigos.selecionarespt();
-    
-
     if (ret===null)
     {
         const  erro = Comunicado.novo('CBD','Sem conexão com o BD','Não foi possível estabelecer conexão com o banco de dados').object;
         return res.status(500).json(erro);
     }
-
     if (ret===false)
     {
         const  erro = Comunicado.novo('FNC','Falha no comando SQL','O comando SQL apresenta algum erro').object;

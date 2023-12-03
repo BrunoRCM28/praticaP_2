@@ -35,8 +35,8 @@ async function ativacaoDoServidor ()
     app.use(express.json());   // faz com que o express consiga processar JSON
     app.use(middleWareGlobal); // app.use cria o middleware global
 
-    app.post  ('/cesp', rotas.incluitipo,console.log(rotas.incluitipo)); 
-    app.get  ('/lesp', rotas.selecionaespt,console.log(rotas.selecionaespt)); 
+    app.post  ('/cesp', rotas.incluitipo); 
+    app.get  ('/lesp', rotas.selecionaespt); 
 
     console.log ('Servidor ativo na porta 3000...');
     app.listen(3000);

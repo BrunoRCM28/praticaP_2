@@ -37,7 +37,7 @@ async function estrutureSe ()
 {
     const conexao = await getConexao()
     if (conexao==undefined) return null;
-    const sql2 = 'create table hotel.testes(nome varchar(20) primary key)';
+    const sql2 = 'Select * from hotel.TipoQuarto';
     console.log(sql2)
     try
     {

@@ -17,8 +17,11 @@ async function selecionarespt(){
     if (conexao == null) return null;
     try{
         const sql = "Select * from hotel.TipoQuarto"
+        const [linhas] = await conexao.query(sql);
+        return linhas;
     }
     catch(excecao){
+        console.log(excecao)
         return false;
     }
 }
