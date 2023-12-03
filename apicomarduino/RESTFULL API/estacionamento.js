@@ -37,7 +37,6 @@ class Estacionamento{
         if(idVaga===undefined || typeof idVaga !== 'number' || isNaN(idVaga) || idVaga!==parseInt(idVaga) || idVaga<=0){
             throw('Cpf invalido');
         }
-
         this.#idVaga = idVaga;
     }
 
@@ -45,7 +44,6 @@ class Estacionamento{
         if(cpf===undefined || typeof cpf !== 'number' || isNaN(cpf) || cpf!==parseInt(cpf) || cpf<=0){
             throw('Cpf invalido');
         }
-
         this.#cpf = cpf;
     }
 
