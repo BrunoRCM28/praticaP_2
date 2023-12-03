@@ -110,11 +110,11 @@ class Hospedes{
 }
 
 function novoHos(prenome , sobrenome, cpf, telefone, e_mail, rg, sexo){
-    return new Tpquarto(prenome , sobrenome, cpf, telefone, e_mail, rg, sexo);
+    return new Hospedes(prenome , sobrenome, cpf, telefone, e_mail, rg, sexo);
 }
 
 function selectHos(){
-    return new Tpquarto();
+    return new Hospedes();
 }
 
 module.exports = {novoHos, selectHos};
