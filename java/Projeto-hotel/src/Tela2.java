@@ -296,6 +296,7 @@ public class Tela2 extends JFrame {
         anoCheckin = new JComboBox<>();
         int currentYear = LocalDate.now().getYear();
         anoCheckin.addItem(currentYear);
+        anoCheckin.addItem(currentYear + 1);
         anoCheckin.setBounds(685, 310, 70, 30);
         reserva.add(anoCheckin);
         //Chacek Box - data Checkout
@@ -316,6 +317,7 @@ public class Tela2 extends JFrame {
         anoCheckout = new JComboBox<>();
         int anoCheck = LocalDate.now().getYear();
         anoCheckout.addItem(currentYear);
+        anoCheckout.addItem(currentYear + 1);
         anoCheckout.setBounds(690, 380, 70, 30);
         reserva.add(anoCheckout);
         // Botão de Reserva

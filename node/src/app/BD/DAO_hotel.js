@@ -9,7 +9,8 @@ class DAO_hotel {
     exibequartos() {
         return new Promise((resolve, reject) => 
         {
-            var sql = "SELECT andar, numeroQuarto, id_Tipo FROM hotel.Quarto ORDER by id_Tipo"
+            //SELECT andar, numeroQuarto, id_Tipo FROM hotel.Quarto ORDER by id_Tipo
+            var sql = "select * from hotel.exibe_quartos";
             this._bd.query(sql,function(erro,recordset) 
             {
             if (erro) 
@@ -41,7 +42,8 @@ class DAO_hotel {
     exibehospede() {
         return new Promise((resolve, reject) => 
         {
-            var sql = "SELECT codigoCliente, prenome, sobrenome,cpf, telefone ,e_mail, rg, sexo, inativo FROM hotel.Hospedes ORDER by codigoCliente"
+            //SELECT codigoCliente, prenome, sobrenome,cpf, telefone ,e_mail, rg, sexo, inativo FROM hotel.Hospedes ORDER by codigoCliente
+            var sql = "select * from hotel.exibe_hospede";
             this._bd.query(sql,function(erro,recordset) 
             {
             if (erro) 
@@ -57,7 +59,9 @@ class DAO_hotel {
     exibereserva() {
         return new Promise((resolve, reject) => 
         {
-            var sql = "SELECT id_Reserva, cpf, numeroQuarto, quantidadeDePessoas ,observacao, dia_checkin, dia_checkout FROM hotel.Reserva ORDER by id_Reserva"
+
+            //SELECT id_Reserva, cpf, numeroQuarto, quantidadeDePessoas ,observacao, dia_checkin, dia_checkout FROM hotel.Reserva ORDER by id_Reserva
+            var sql = "select * from hotel.exibe_reserva";
             this._bd.query(sql,function(erro,recordset) 
             {
             if (erro) 
@@ -73,7 +77,8 @@ class DAO_hotel {
     exibetipo() {
         return new Promise((resolve, reject) => 
         {
-            var sql = "SELECT especificacao,id_Tipo  FROM hotel.TipoQuarto ORDER by id_Tipo"
+            //SELECT especificacao,id_Tipo  FROM hotel.TipoQuarto ORDER by id_Tipo
+            var sql = "select * from hotel.exibe_tipo";
             this._bd.query(sql,function(erro,recordset) 
             {
             if (erro) 
