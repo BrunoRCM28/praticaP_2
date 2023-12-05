@@ -75,6 +75,7 @@ class CON_hotel {
             hDAO.excluicarro(id) 
               .then((resultados) => {
                  console.log(resultados);
+                 res.redirect('/listagemestacionamento')
               })
               .catch(erro => console.log(erro));
         }
