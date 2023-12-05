@@ -1,6 +1,6 @@
-const {serialPort} = require('serialport');
-const arduino = new serialPort({
-    path: 'COM3',
+const {SerialPort} = require('serialport');
+const arduino = new SerialPort({
+    path: 'COM11',
     baudRate: 9600
 });
 

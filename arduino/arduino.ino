@@ -12,7 +12,6 @@ void setup(){
   pinMode(verde, OUTPUT);
   Serial.begin(9600);
   lcd.begin(16, 2);
-  
 }
 void loop(){
   if(Serial.available() > 0){
