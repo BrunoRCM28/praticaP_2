@@ -49,3 +49,7 @@ as
 	FROM hotel.TipoQuarto 
 
 select * from hotel.exibe_tipo
+
+create view hotel.vercarro
+as
+	select * from hotel.Estacionamento
