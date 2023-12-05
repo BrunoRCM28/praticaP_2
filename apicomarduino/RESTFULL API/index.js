@@ -1,6 +1,7 @@
 const express  = require ('express');
 const bd       = require ('./bd.js');
 const rotas    = require ('./rotas.js');
+const codigos = require('./codbancos.js');
 
 function middleWareGlobal (req, res, next)
 {

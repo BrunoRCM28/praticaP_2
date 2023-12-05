@@ -29,6 +29,7 @@ class Tpquarto
             throw('Especificação invalida')
         }
         this.#especificacao = especificacao;
+        console.log(especificacao)
     }
 }
 

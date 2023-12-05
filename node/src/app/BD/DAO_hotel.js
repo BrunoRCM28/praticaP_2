@@ -26,7 +26,7 @@ class DAO_hotel {
     exibeesta() {
         return new Promise((resolve, reject) => 
         {
-            var sql = "SELECT id_Vaga, cpf, cor, modelo ,placa FROM hotel.Estacionamento ORDER by id_Vaga"
+            var sql = "SELECT * from hotel.vercarro"
             this._bd.query(sql,function(erro,recordset) 
             {
             if (erro) 

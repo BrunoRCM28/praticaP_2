@@ -6,6 +6,8 @@ async function incluirespecificacao(especificacao){
     try{
         const sql = "Insert into hotel.TipoQuarto(especificacao) VALUES('"+ especificacao +"')"
         console.log(sql)
+        await conexao.query (sql);
+        return true;
     }
     catch(excecao){
         return false;
@@ -17,11 +19,10 @@ async function selecionarespt(){
     if (conexao == null) return null;
     try{
         const sql = 'Select * from hotel.TipoQuarto'
-        const [linhas] = await conexao.query(sql);
-        return linhas;
+        res.status(200).json(sql.recordset);
     }
     catch(excecao){
-        console.log(excecao)
+        console.log(excecao.message)
         return false;
     }
 }

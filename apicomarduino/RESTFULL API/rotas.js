@@ -1,11 +1,14 @@
 const codigos = require('./codbancos.js');
 const tipo = require('./tpquarto.js');
 const Comunicado = require ('./comunicado.js');
+const { urlencoded } = require('express');
+urlencoded
+
 
 
 // para a rota de CREATE
-async function incluitipo(req,res)
-{
+async function incluitipo(req,res){
+    
     if (Object.values(req.body).length!=1 || !req.body.esp){
         const erro = Comunicado.novo('DdI','Dados inesperados','Não foram fornecido a informação necessaria para um tipo de quarto(Especificação)').object;
         return res.status(422).json(erro);
@@ -17,7 +20,8 @@ async function incluitipo(req,res)
         console.log(tipoquarto)
     }
     catch(excecao){
-        const erro = Comunicado.novo('TDE','Dado de tipo errado','especificação deve ser uma string');
+        console.log(excecao)
+        const erro = Comunicado.novo('TDE','Dado de tipo errado','especificação deve ser uma string').object;
         return res.status(422).json(erro);
     }
 
@@ -61,9 +65,8 @@ async function selecionaespt (req, res)
         const  erro = Comunicado.novo('FNC','Falha no comando SQL','O comando SQL apresenta algum erro').object;
         return res.status(409).json(erro);
     }
-    
+    console.log(ret);
     return res.status(200).json(ret);
-    console.log(ret)
 }
 
 module.exports = {incluitipo,selecionaespt}

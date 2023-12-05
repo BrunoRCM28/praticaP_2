@@ -22,8 +22,10 @@ async function getConexao ()
         
         const pool = new sql.ConnectionPool(dados)
         const conexao = await pool.connect()
-        //pool.connect()
+        pool.connect()
+        console.log (conexao);
         global.conexao = conexao;
+        console.log(global.conexao)
         return conexao;
     }
     catch (erro)
