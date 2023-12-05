@@ -1,11 +1,16 @@
-const {SerialPort} = require('serialport');
-const arduino = new SerialPort({
-    path: 'COM11',
-    baudRate: 9600
+const five = require("johnny-five");
+const board = new five.Board({ port: 'COM3', baudRate: 9600 });
+
+board.on('ready', () => {
+  const led = new five.Led(6); // Use o mesmo pino que você definiu como `backLight` no Arduino
+  var lcd = new five.LCD({ 
+    pins: [12, 11, 5, 4, 3, 2],
+    backlight: 13,
+    rows: 2,
+    cols: 16
+  });
+
+  lcd.on();
+  lcd.cursor(0, 0).print("hello");
 });
 
-function removerSucesso(num){
-    arduino.write(''+num+'');
-}
-
-setTimeout(removerSucesso, 2000);
