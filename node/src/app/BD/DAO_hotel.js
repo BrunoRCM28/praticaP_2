@@ -95,7 +95,7 @@ class DAO_hotel {
 
     excluicarro(idcarro) {
         return new Promise((resolve,req) => {
-            var sql = "Delete from hotel.estacionamento where id_Vaga = (" + idcarro + ")";
+            var sql = "exec hotel.deletaesta " + idcarro + "";
             console.log(sql)
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
@@ -109,7 +109,7 @@ class DAO_hotel {
 
     excluihospede(idhospede) {
         return new Promise((resolve,req) => {
-            var sql = "Delete from hotel.Hospedes where codigoCliente = (" + idhospede + ")";
+            var sql = "exec hotel.deletahos " + idhospede + "";
             console.log(sql)
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
@@ -123,7 +123,7 @@ class DAO_hotel {
 
     excluiquarto(idquarto) {
         return new Promise((resolve,req) => {
-            var sql = "Delete from hotel.Quarto where numeroQuarto = (" + idquarto + ")";
+            var sql = "exec hotel.deletaquarto " + idquarto + "";
             console.log(sql)
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
@@ -137,7 +137,7 @@ class DAO_hotel {
 
     excluireserva(idreserva) {
         return new Promise((resolve,req) => {
-            var sql = "Delete from hotel.reserva where id_Reserva = (" + idreserva + ")";
+            var sql = "exec hotel.sp1 = " + idreserva + "";
             console.log(sql)
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
@@ -151,7 +151,7 @@ class DAO_hotel {
 
     excluitipo(idtipo) {
         return new Promise((resolve,req) => {
-            var sql = "Delete from hotel.TipoQuarto where id_Tipo = (" + idtipo + ")";
+            var sql = "exec hotel.deletatipo " + idtipo + "";
             console.log(sql)
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
