@@ -125,6 +125,8 @@ class CON_hotel {
             hDAO.excluireserva(id) 
               .then((resultados) => {
                  console.log(resultados);
+                 res.redirect('/listagemreservas')
+
                 ardu.removerSucesso();
               })
               .catch(erro => console.log(erro), ardu.removerErro());
@@ -180,7 +182,7 @@ class CON_hotel {
             var inativo = req.body.inativo
             var id = req.params.codigoCliente
             const hDAO = new hotelDAO(bd);
-            hDAO.editahospede(nome,sobrenome,cpf,telefone,email,rg,sexo,inativo,id)
+            hDAO.editahospede(prenome,sobrenome,cpf,telefone,email,rg,sexo,inativo,id)
                 .then((resultados) => {
                     res.redirect('/listagemhospedes')
                     ardu.editarSucesso();
@@ -200,7 +202,7 @@ class CON_hotel {
             var diaout = req.body.out
             var id = req.params.id_Reserva
             const hDAO = new hotelDAO(bd);
-            hDAO.editacarro(nquarto,qpessoas,obs,diain,diaout,id)
+            hDAO.editareserva(nquarto,qpessoas,obs,diain,diaout,id)
                 .then((resultados) => {
                     res.redirect('/listagemreserva')
                     ardu.editarSucesso();

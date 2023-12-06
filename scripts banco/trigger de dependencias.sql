@@ -5,9 +5,10 @@ instead of delete
 as 
 begin
 	set nocount on;
-	declare @cpf int
+	declare @cpf bigint
 	select @cpf = cpf from deleted
 	delete from hotel.Estacionamento where cpf = @cpf
+	delete from hotel.Reserva where cpf = @cpf
 	delete from hotel.Hospedes where cpf = @cpf
 end
 
@@ -29,7 +30,7 @@ end
 
 
 
-create trigger verificahospedagem
+create or alter trigger verificahospedagem
 on hotel.Estacionamento
 for insert,update 
 as
@@ -40,6 +41,7 @@ Begin
 	select @cpf2 = cpf from hotel.Reserva where @cpf = cpf
 	if @cpf2 = null
 	begin
+		raiserror('não existe reserva nesse cpf portanto não sera possivel registrar carro no estacionamento',16,1)
 		delete from hotel.Estacionamento where cpf = @cpf
 	end
 End
