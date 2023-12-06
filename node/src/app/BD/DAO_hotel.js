@@ -138,7 +138,7 @@ class DAO_hotel {
 
     excluireserva(idreserva) {
         return new Promise((resolve,req) => {
-            var sql = "exec hotel.sp1 = " + idreserva + "";
+            var sql = "exec hotel.sp1 " + idreserva + "";
             console.log(sql)
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
