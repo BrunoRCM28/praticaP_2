@@ -14,3 +14,7 @@ as begin
 	delete from hotel.Estacionamento where id_Vaga = @i
 	end
 end
+
+DELETE FROM hotel.Hospedes WHERE codigoCliente = 
+
+select * from hotel.Hospedes
