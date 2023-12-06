@@ -144,7 +144,7 @@ class CON_hotel {
                  console.log(resultados);
                 // ardu.removerSucesso();, ardu.removerErro(
               })
-              .catch(erro => console.log(erro)));
+              .catch(erro => console.log(erro));
         }
     }
 
