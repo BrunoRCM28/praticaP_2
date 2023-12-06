@@ -47,6 +47,9 @@ as begin
 	end
 end
 
+exec hotel.inserehos 'rafael','alves',12345446,1996934923943,'rafael019wi@gmail.com',1203012031,M
+select * from hotel.exibe_hospede
+
 create or alter procedure hotel.inserereserva
 @cpf bigint,@numq int,@qpessoa int,@observacao text,@diain varchar(20), @diaout varchar(20)
 as begin
@@ -55,6 +58,8 @@ as begin
 	end
 end
 
+exec hotel.inserereserva 12345446,1,4,'sem agua', '14/09/2024','14/09/2025'
+select * from hotel.Reserva
 
 create or alter procedure hotel.inserecarro
 @cpf bigint,@cor varchar(10),@modelo varchar(10),@placa text
@@ -65,7 +70,7 @@ as begin
 end
 
 create or alter procedure hotel.updtesta
-@id int,@cor varchar(10),@modelo varchar(10),@placa varchar(10)
+@cor varchar(10),@modelo varchar(10),@placa text,@id varchar(10)
 as begin
 	declare @cpf bigint
 	Select @cpf = cpf from hotel.Estacionamento where id_Vaga = @id
@@ -76,6 +81,6 @@ end
 
 exec hotel.inserecarro 99999999999 ,'rosa','kwid','dasdws12'
 
-exec hotel.updtesta 1 ,'rosa','kwid','23rs534'
+exec hotel.updtesta 'rosa','kwid','23rs534','1'
 
 select * from hotel.Estacionamento
