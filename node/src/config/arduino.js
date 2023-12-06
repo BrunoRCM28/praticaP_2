@@ -21,7 +21,14 @@ class Ligar{
      setTimeout(() => {
       lcd.off();
       led.off();
+      
      }, 5000)
+
+    board.on("exit", () => {
+      led.off();
+    });
+
+     
    });
   }
 

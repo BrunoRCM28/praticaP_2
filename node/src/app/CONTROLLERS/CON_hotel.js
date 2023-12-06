@@ -95,7 +95,7 @@ class CON_hotel {
             hDAO.excluihospede(id) 
               .then((resultados) => {
                 console.log(resultados);
-                ardu.removerHopede();;
+                ardu.removerSucesso();
              })
               .catch(erro => console.log(erro), ardu.removerErro());
         }
