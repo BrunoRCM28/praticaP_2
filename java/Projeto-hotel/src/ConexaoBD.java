@@ -24,8 +24,10 @@ public class ConexaoBD{
         this.conexao = conexao;
     }
     public void insertHospede(String nome, String sobrenome, long cpf , long telefone, String email, long rg, char sexo) {
-        String insert = "insert into hotel.Hospedes(prenome , sobrenome, cpf, telefone, e_mail, rg, sexo)" +
-                        "values('"+nome+"', '"+sobrenome+"', "+cpf+", "+telefone+", '"+email+"', "+rg+", '"+sexo+"')";
+        //"insert into hotel.Hospedes(prenome , sobrenome, cpf, telefone, e_mail, rg, sexo)" +
+        //"values('"+nome+"', '"+sobrenome+"', "+cpf+", "+telefone+", '"+email+"', "+rg+", '"+sexo+"')";
+
+        String insert = "exec hotel.inserehos '"+nome+"', '"+sobrenome+"', "+cpf+", "+telefone+", '"+email+"', "+rg+", '"+sexo+"'";
         try {
             Statement statement = conexao.createStatement();
             int rowsAffected = statement.executeUpdate(insert);
@@ -40,8 +42,14 @@ public class ConexaoBD{
         }
     }
     public void insertReserva(long cpf , int numeroQuarto, int quantidadeDePessoas, String observacao, int diaCheckin, int mesCheckin, int anoCheckin, int diaCheckout, int mesCheckout, int anoCheckout) {
-        String insert = "insert into hotel.Reserva(cpf, numeroQuarto, quantidadeDePessoas, observacao, dia_checkin, dia_checkout)" +
-                        "values("+cpf+", "+numeroQuarto+", "+quantidadeDePessoas+", '"+observacao+"',Convert(date, '"+diaCheckin+"-"+mesCheckin+"-"+anoCheckin+"',103),Convert(date, '"+diaCheckout+"-"+mesCheckout+"-"+anoCheckout+"',103))";
+        //"insert into hotel.Reserva(cpf, numeroQuarto, quantidadeDePessoas, observacao, dia_checkin, dia_checkout)" +
+        //"values("+cpf+", "+numeroQuarto+", "+quantidadeDePessoas+", '"+observacao+"',Convert(date, '"+checkin+"',103),Convert(date, '"+checkout+"',103))";
+
+        String checkin = ""+diaCheckin+"-"+mesCheckin+"-"+anoCheckin+"";
+        String checkout = ""+diaCheckout+"-"+mesCheckout+"-"+anoCheckout+"";
+
+        String insert = "exec hotel.inserereserva "+cpf+", "+numeroQuarto+", "+quantidadeDePessoas+", '"+observacao+"', '"+checkin+"', '"+checkout+"'";
+
         try {
             Statement statement = conexao.createStatement();
             int rowsAffected = statement.executeUpdate(insert);
@@ -56,8 +64,9 @@ public class ConexaoBD{
         }
     }
     public void insertCarro(long cpf, String cor, String modelo, String placa) {
-        String insert = "insert into hotel.Estacionamento(cpf, cor, modelo, placa)" +
-                "values("+cpf+", '"+cor+"', '"+modelo+"', '"+placa+"')";
+        //"insert into hotel.Estacionamento(cpf, cor, modelo, placa)" +
+        //"values("+cpf+", '"+cor+"', '"+modelo+"', '"+placa+"')";
+        String insert = "exec hotel.inserecarro "+cpf+" ,'"+cor+"','"+modelo+"','"+placa+"'";
         try {
             Statement statement = conexao.createStatement();
             int rowsAffected = statement.executeUpdate(insert);
