@@ -114,6 +114,7 @@ class CON_hotel {
             hDAO.excluireserva(id) 
               .then((resultados) => {
                  console.log(resultados);
+                 res.redirect('/listagemreservas')
 
               })
               .catch(erro => console.log(erro));

@@ -137,7 +137,7 @@ class DAO_hotel {
 
     excluireserva(idreserva) {
         return new Promise((resolve,req) => {
-            var sql = "exec hotel.sp1 = " + idreserva + "";
+            var sql = "exec hotel.sp1 " + idreserva + "";
             console.log(sql)
             this._bd.query(sql,function(erro,recordset) {
                 if(erro) {
@@ -167,7 +167,7 @@ class DAO_hotel {
 
     editacarro(cor,modelo,placa,idvaga) {
         return new Promise((resolve,req) => {
-            var sql2 = "Update hotel.Estacionamento set cor = ('" + cor + "'),modelo = ('" + modelo + "'),placa = ('" + placa + "') where id_Vaga = (" + idvaga + ")";
+            var sql2 = "exec hotel.updtesta "+idvaga+",'"+cor+"','"+modelo+"','"+placa+"'";
             console.log(sql2)
             this._bd.query(sql2,function(erro,recordset) {
                 if(erro) {
