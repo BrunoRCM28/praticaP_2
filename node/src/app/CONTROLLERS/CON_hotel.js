@@ -2,6 +2,8 @@ const e = require("express");
 const bd = require("../../config/database")
 const hotelDAO = require("../BD/DAO_hotel")
 
+
+
 class CON_hotel {
 
     //listagens
@@ -70,45 +72,54 @@ class CON_hotel {
 
     deletaesta() {
         return function(req,res) {
+            const arduino = require("../../config/arduino");
+            const ardu = new arduino();
             const hDAO = new hotelDAO(bd);
             let id = req.params.id_Vaga
             hDAO.excluicarro(id) 
               .then((resultados) => {
                  console.log(resultados);
                  res.redirect('/listagemestacionamento')
+                 ardu.removerSucesso();
               })
-              .catch(erro => console.log(erro));
+              .catch(erro => console.log(erro), ardu.removerErro());
         }
     }
 
     deletahospede() {
         return function(req,res) {
+            const arduino = require("../../config/arduino");
+            const ardu = new arduino();
             const hDAO = new hotelDAO(bd);
             let id = req.params.codigoCliente
             hDAO.excluihospede(id) 
               .then((resultados) => {
-                 console.log(resultados);
-
-              })
-              .catch(erro => console.log(erro));
+                console.log(resultados);
+                ardu.removerHopede();;
+             })
+              .catch(erro => console.log(erro), ardu.removerErro());
         }
     }
 
     deletaquarto() {
         return function(req,res) {
+            const arduino = require("../../config/arduino");
+            const ardu = new arduino();
             const hDAO = new hotelDAO(bd);
             let id = req.params.numeroQuarto
             hDAO.excluiquarto(id) 
               .then((resultados) => {
                  console.log(resultados);
-
+                ardu.removerSucesso();
               })
-              .catch(erro => console.log(erro));
+              .catch(erro => console.log(erro), ardu.removerErro());
         }
     }
 
     deletareserva() {
         return function(req,res) {
+            const arduino = require("../../config/arduino");
+            const ardu = new arduino();
             const hDAO = new hotelDAO(bd);
             let id = req.params.id_Reserva
             hDAO.excluireserva(id) 
@@ -116,21 +127,24 @@ class CON_hotel {
                  console.log(resultados);
                  res.redirect('/listagemreservas')
 
+                ardu.removerSucesso();
               })
-              .catch(erro => console.log(erro));
+              .catch(erro => console.log(erro), ardu.removerErro());
         }
     }
 
     deletatipo() {
         return function(req,res) {
+            const arduino = require("../../config/arduino");
+            const ardu = new arduino();
             const hDAO = new hotelDAO(bd);
             let id = req.params.id_Tipo
             hDAO.excluitipo(id) 
               .then((resultados) => {
                  console.log(resultados);
-
+                ardu.removerSucesso();
               })
-              .catch(erro => console.log(erro));
+              .catch(erro => console.log(erro), ardu.removerErro());
         }
     }
 
@@ -138,6 +152,8 @@ class CON_hotel {
 
     editacarro() {
         return function(req,res) {
+            const arduino = require("../../config/arduino");
+            const ardu = new arduino();
             var cor = req.body.cor
             var modelo = req.body.modelo
             var placa = req.body.placa
@@ -146,13 +162,16 @@ class CON_hotel {
             hDAO.editacarro(cor,modelo,placa,id)
                 .then((resultados) => {
                     res.redirect('/listagemestacionamento')
+                    ardu.editarSucesso();
                 })
-                .catch(erro => console.log(erro))
+                .catch(erro => console.log(erro), ardu.editarErro())
         }
     }
 
     editahospede() {
         return function(req,res) {
+            const arduino = require("../../config/arduino");
+            const ardu = new arduino();
             var prenome = req.body.nome
             var sobrenome = req.body.sobrenome
             var cpf = req.body.cpf
@@ -163,16 +182,19 @@ class CON_hotel {
             var inativo = req.body.inativo
             var id = req.params.codigoCliente
             const hDAO = new hotelDAO(bd);
-            hDAO.editahospede(nome,sobrenome,cpf,telefone,email,rg,sexo,inativo,id)
+            hDAO.editahospede(prenome,sobrenome,cpf,telefone,email,rg,sexo,inativo,id)
                 .then((resultados) => {
                     res.redirect('/listagemhospedes')
+                    ardu.editarSucesso();
                 })
-                .catch(erro => console.log(erro))
+                .catch(erro => console.log(erro), ardu.editarErro)
         }
     }
 
     editareserva() {
         return function(req,res) {
+            const arduino = require("../../config/arduino");
+            const ardu = new arduino();
             var nquarto = req.body.quarto
             var qpessoas = req.body.pessoas
             var obs = req.body.obs
@@ -180,29 +202,35 @@ class CON_hotel {
             var diaout = req.body.out
             var id = req.params.id_Reserva
             const hDAO = new hotelDAO(bd);
-            hDAO.editacarro(nquarto,qpessoas,obs,diain,diaout,id)
+            hDAO.editareserva(nquarto,qpessoas,obs,diain,diaout,id)
                 .then((resultados) => {
                     res.redirect('/listagemreserva')
+                    ardu.editarSucesso();
                 })
-                .catch(erro => console.log(erro))
+                .catch(erro => console.log(erro), ardu.editarErro());
         }
     }
 
     editatipo() {
         return function(req,res) {
+            const arduino = require("../../config/arduino");
+            const ardu = new arduino();
             var esp = req.body.esp
             var id = req.params.id_Vaga
             const hDAO = new hotelDAO(bd);
             hDAO.editatipo(esp,id)
                 .then((resultados) => {
                     res.redirect('/listagemTipoQuarto')
+                    ardu.editarSucesso();
                 })
-                .catch(erro => console.log(erro))
+                .catch(erro => console.log(erro), ardu.editarErro());
         }
     }
 
     editaquarto() {
         return function(req,res) {
+            const arduino = require("../../config/arduino");
+            const ardu = new arduino();
             var an = req.body.an
             var tipo = req.body.tipo
             var id = req.params.numeroQuarto
@@ -210,8 +238,9 @@ class CON_hotel {
             hDAO.editaquarto(an,tipo,id)
                 .then((resultados) => {
                     res.redirect('/listagemquarto')
+                    ardu.editarSucesso();
                 })
-                .catch(erro => console.log(erro))
+                .catch(erro => console.log(erro), ardu.editarErro());
         }
     }
 
