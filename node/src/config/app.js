@@ -1,4 +1,5 @@
 const ligando = require('./arduino');
+const ardu = new ligando();
+ardu.removerSucesso();
 
-const ok = new ligando();
-ok.ligar();
+
