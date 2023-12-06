@@ -51,7 +51,7 @@ class DAO_hotel {
                 console.log(erro);
                 return reject("Lista de hospedes FALHOU!");
             }
-            //resolve(recordset);
+            resolve(recordset);
             });
         });
     }

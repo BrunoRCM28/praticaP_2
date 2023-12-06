@@ -14,7 +14,7 @@ class CON_hotel {
             const hDAO = new hotelDAO(bd);
             hDAO.exibequartos() 
               .then((resultados) => {
-                 console.log(resultados);
+                 //console.log(resultados);
                  res.render('../views/quarto', { quarto: Array.isArray(resultados.recordset) ? resultados.recordset : [resultados.recordset] });
               })
               .catch(erro => console.log(erro));
@@ -26,7 +26,7 @@ class CON_hotel {
             const hDAO = new hotelDAO(bd);
             hDAO.exibeesta() 
               .then((resultados) => {
-                 console.log(resultados);
+                 //console.log(resultados);
                  res.render('../views/estacionamento', { esta: Array.isArray(resultados.recordset) ? resultados.recordset : [resultados.recordset] });
               })
               .catch(erro => console.log(erro));
@@ -38,7 +38,7 @@ class CON_hotel {
             const hDAO = new hotelDAO(bd);
             hDAO.exibehospede() 
               .then((resultados) => {
-                 console.log(resultados);
+                 //console.log(resultados);
                  res.render('../views/hospede', { hospede: Array.isArray(resultados.recordset) ? resultados.recordset : [resultados.recordset] });
               })
               .catch(erro => console.log(erro));
@@ -50,7 +50,7 @@ class CON_hotel {
             const hDAO = new hotelDAO(bd);
             hDAO.exibereserva() 
               .then((resultados) => {
-                 console.log(resultados);
+                 //console.log(resultados);
                  res.render('../views/reserva', { reserva: Array.isArray(resultados.recordset) ? resultados.recordset : [resultados.recordset] });
               })
               .catch(erro => console.log(erro));
@@ -62,7 +62,7 @@ class CON_hotel {
             const hDAO = new hotelDAO(bd);
             hDAO.exibetipo() 
               .then((resultados) => {
-                 console.log(resultados);
+                 //console.log(resultados);
                  res.render('../views/tipoquarto', { tipo: Array.isArray(resultados.recordset) ? resultados.recordset : [resultados.recordset] });
               })
               .catch(erro => console.log(erro));
