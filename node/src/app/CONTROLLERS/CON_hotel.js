@@ -1,6 +1,8 @@
 const e = require("express");
 const bd = require("../../config/database")
 const hotelDAO = require("../BD/DAO_hotel")
+const arduino = require("../../config/arduino");
+
 
 class CON_hotel {
 
@@ -84,11 +86,12 @@ class CON_hotel {
     deletahospede() {
         return function(req,res) {
             const hDAO = new hotelDAO(bd);
+            const ardu = new arduino();
             let id = req.params.codigoCliente
             hDAO.excluihospede(id) 
               .then((resultados) => {
-                 console.log(resultados);
-
+                console.log(resultados);
+                ardu.ligar();
               })
               .catch(erro => console.log(erro));
         }

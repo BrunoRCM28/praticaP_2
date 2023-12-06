@@ -109,6 +109,7 @@ class DAO_hotel {
 
     excluihospede(idhospede) {
         return new Promise((resolve,req) => {
+            //DELETE FROM hotel.Hospedes WHERE codigoCliente = 
             var sql = "exec hotel.deletahos " + idhospede + "";
             console.log(sql)
             this._bd.query(sql,function(erro,recordset) {
