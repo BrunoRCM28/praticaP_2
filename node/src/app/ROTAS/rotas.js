@@ -55,7 +55,7 @@ module.exports = (app) => {
     app.get('/editareserva/:id_Reserva', urlencodedParser, function(req, res){
         res.render('reservaed')
     });
-    app.post('/editareserva/:id_Reserva', urlencodedParser,hcontroller.editahospede(), function(req, res){
+    app.post('/editareserva/:id_Reserva', urlencodedParser,hcontroller.editareserva(), function(req, res){
     });
 
     app.get('/editatipo/:id_tipo', urlencodedParser, function(req, res){

@@ -168,7 +168,7 @@ class DAO_hotel {
 
     editacarro(cor,modelo,placa,idvaga) {
         return new Promise((resolve,req) => {
-            var sql2 = "exec hotel.updtesta "+idvaga+",'"+cor+"','"+modelo+"','"+placa+"'";
+            var sql2 = "Update hotel.Estacionamento set cor =('"+cor+"'),modelo = ('"+modelo+"'),placa = ('"+placa+"') where id_Vaga = "+idvaga+"";
             console.log(sql2)
             this._bd.query(sql2,function(erro,recordset) {
                 if(erro) {
@@ -182,7 +182,7 @@ class DAO_hotel {
 
     editahospede(prenome,sobrenome,cpf,telefone,email,rg,sexo,inativo,codcliente) {
         return new Promise((resolve,req) => {
-            var sql2 = "Update hotel.Hospedes set prenome = ('" + prenome + "'),sobrenome = ('" + sobrenome + "'),cpf = ('" + cpf + "'),telefone = ('" + telefone + "'),e_mail = ('" + email + "'),rg = ('" + rg + "'),sexo = ('" + sexo + "'),inativo = ('" + inativo + "'), where codigoCliente = (" + codcliente + ")";
+            var sql2 = "exec hotel.updthos  '" + prenome + "','" + sobrenome + "','" + cpf + "','" + telefone + "','" + email + "','" + rg + "','" + sexo + "','" + inativo + "', " + codcliente + "";
             console.log(sql2)
             this._bd.query(sql2,function(erro,recordset) {
                 if(erro) {
@@ -196,7 +196,7 @@ class DAO_hotel {
 
     editareserva(numeroquarto,quantidadedepessoas,observacao,diacheckin,diacheckout,idreserva) {
         return new Promise((resolve,req) => {
-            var sql2 = "Update hotel.Reserva set  numeroQuarto= ('" + numeroquarto + "'),quantidadeDePessoas = ('" + quantidadedepessoas + "'),observacao = ('" + observacao + "'),dia_checkin = Convert(date," + diacheckin + ",103),dia_checkout = Convert(date," + diacheckout + ",103) where id_Reserva = (" + idreserva + ")";
+            var sql2 = "exec hotel.updtres " + numeroquarto + "," + quantidadedepessoas + ",'" + observacao + "','" + diacheckin + "','" + diacheckout + "'," + idreserva + "";
             console.log(sql2)
             this._bd.query(sql2,function(erro,recordset) {
                 if(erro) {
