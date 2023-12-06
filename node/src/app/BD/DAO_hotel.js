@@ -51,7 +51,7 @@ class DAO_hotel {
                 console.log(erro);
                 return reject("Lista de hospedes FALHOU!");
             }
-            resolve(recordset);
+            //resolve(recordset);
             });
         });
     }
@@ -182,7 +182,7 @@ class DAO_hotel {
 
     editahospede(prenome,sobrenome,cpf,telefone,email,rg,sexo,inativo,codcliente) {
         return new Promise((resolve,req) => {
-            var sql2 = "exec hotel.updthos  '" + prenome + "','" + sobrenome + "','" + cpf + "','" + telefone + "','" + email + "','" + rg + "','" + sexo + "','" + inativo + "', " + codcliente + "";
+            var sql2 = "Update hotel.Hospedes set prenome = ('" + prenome + "'),sobrenome = ('" + sobrenome + "'),cpf = ('" + cpf + "'),telefone = ('" + telefone + "'),e_mail = ('" + email + "'),rg = ('" + rg + "'),sexo = ('" + sexo + "'),inativo = ('" + inativo + "'), where codigoCliente = (" + codcliente + ")";
             console.log(sql2)
             this._bd.query(sql2,function(erro,recordset) {
                 if(erro) {
@@ -196,7 +196,7 @@ class DAO_hotel {
 
     editareserva(numeroquarto,quantidadedepessoas,observacao,diacheckin,diacheckout,idreserva) {
         return new Promise((resolve,req) => {
-            var sql2 = "exec hotel.updtres " + numeroquarto + "," + quantidadedepessoas + ",'" + observacao + "','" + diacheckin + "','" + diacheckout + "'," + idreserva + "";
+            var sql2 = "Update hotel.Reserva set  numeroQuarto= ('" + numeroquarto + "'),quantidadeDePessoas = ('" + quantidadedepessoas + "'),observacao = ('" + observacao + "'),dia_checkin = Convert(date," + diacheckin + ",103),dia_checkout = Convert(date," + diacheckout + ",103) where id_Reserva = (" + idreserva + ")";
             console.log(sql2)
             this._bd.query(sql2,function(erro,recordset) {
                 if(erro) {

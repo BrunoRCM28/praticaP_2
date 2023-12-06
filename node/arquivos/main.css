@@ -1,13 +1,6 @@
 body
 {
     background-color: rgb(58, 56, 56);
-
-}
-
-header
-{
-    color: white;
-    text-align: center;
 }
 
 h1
@@ -66,4 +59,29 @@ button#e{
 }
 button#e:hover{
     background-color: gray;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+article{
+    display: block;
+    background-color: white;
+    position: absolute;
+    text-align: center;
+    top: 100px;
+    height: 60%;
+    width: 50%;
+    margin: 0 auto;
+    opacity: 100%;
+}
+div#img{
+    background: url(imgs/area-de-piscina-hotel2.png);
+    width: 95%;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    opacity: 50%;
 }

@@ -1,6 +1,7 @@
 const e = require("express");
 const bd = require("../../config/database")
-const hotelDAO = require("../BD/DAO_hotel")
+const hotelDAO = require("../BD/DAO_hotel");
+const { Int } = require("mssql");
 
 
 
@@ -180,7 +181,8 @@ class CON_hotel {
             var rg = req.body.rg
             var sexo = req.body.sexo
             var inativo = req.body.inativo
-            var id = req.params.codigoCliente
+            let id = req.params.codigoCliente
+            
             const hDAO = new hotelDAO(bd);
             hDAO.editahospede(prenome,sobrenome,cpf,telefone,email,rg,sexo,inativo,id)
                 .then((resultados) => {
