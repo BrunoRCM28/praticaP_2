@@ -6,6 +6,8 @@ body
 h1
 {
     font-size: 70px;
+    position: relative;
+    top: -20px;
 }
 article
 {
@@ -62,18 +64,21 @@ button#e:hover{
 }
 a{
     text-decoration: none;
+    color: darkslategray;
 }
 a:hover{
     text-decoration: underline;
+    color: gray;
 }
 article{
     display: block;
     background-color: white;
     position: absolute;
     text-align: center;
-    top: 100px;
-    height: 60%;
-    width: 50%;
+    top: 70px;
+    height: 70%;
+    width: 55%;
+    left: 22%;
     margin: 0 auto;
     opacity: 100%;
 }
@@ -84,4 +89,9 @@ div#img{
     position: relative;
     margin: 0 auto;
     opacity: 50%;
+}
+h2{
+    font-size: 40px;
+    position: relative;
+    top: -40px;
 }
