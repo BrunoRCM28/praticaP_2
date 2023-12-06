@@ -216,7 +216,7 @@ class CON_hotel {
             const arduino = require("../../config/arduino");
             const ardu = new arduino();
             var esp = req.body.esp
-            var id = req.params.id_Vaga
+            var id = req.params.id_tipo
             const hDAO = new hotelDAO(bd);
             hDAO.editatipo(esp,id)
                 .then((resultados) => {
