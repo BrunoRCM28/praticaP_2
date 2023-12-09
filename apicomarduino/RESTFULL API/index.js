@@ -5,13 +5,13 @@ const codigos = require('./codbancos.js');
 
 function middleWareGlobal (req, res, next)
 {
-    console.time('Duração'); // marca o início da requisição
-    console.log('Iniciou  o processamento da requisição '+req.method+' em '+req.url); // indica o início do processamento da url, indicando também o método
+    console.time('Duração'); 
+    console.log('Iniciou  o processamento da requisição '+req.method+' em '+req.url);
 
-    next(); // função que chama o processamento, propriamente dito, da requisição
+    next();
                
-    console.log('Terminou o processamento da requisição '+req.method+' em '+req.url); // indica o término do processamento da url, indicando também o método
-    console.timeEnd('Duração'); // informa duração do processamento da requisição
+    console.log('Terminou o processamento da requisição '+req.method+' em '+req.url);
+    console.timeEnd('Duração');
 }
 
 async function ativacaoDoServidor ()
@@ -33,11 +33,13 @@ async function ativacaoDoServidor ()
     const express = require('express');
     const app     = express();
     
-    app.use(express.json());   // faz com que o express consiga processar JSON
-    app.use(middleWareGlobal); // app.use cria o middleware global
+    app.use(express.json());
+    app.use(middleWareGlobal);
 
     app.post  ('/cesp', rotas.incluitipo); 
-    app.get  ('/lesp', rotas.selecionaespt); 
+    app.get  ('/lesp', rotas.selecionaespt);
+    app.post  ('/cquarto', rotas.incluiquarto); 
+    app.get  ('/lquarto', rotas.selecionarequarto);  
 
     console.log ('Servidor ativo na porta 3000...');
     app.listen(3000);
