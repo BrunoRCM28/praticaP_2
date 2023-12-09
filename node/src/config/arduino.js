@@ -24,11 +24,6 @@ class Ligar{
       
      }, 5000)
 
-    board.on("exit", () => {
-      led.off();
-    });
-
-     
    });
   }
 
